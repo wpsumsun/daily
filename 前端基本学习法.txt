@@ -1,0 +1,71 @@
+# 前端基本学习法
+
+## 语言
+
+* HTML
+    1. [元素概览（知识框架）](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element)
+    2. 划重点
+    3. 各个击破（博客）
+* CSS
+    [单词数量变多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)，我们要分类分重点学习
+    1. [分类](http://www.w3school.com.cn/cssref/index.asp) 以了解 CSS 能做什么
+    2. 先学重点
+    * 动画
+    * 背景
+    * 边框和轮廓
+    * 盒（框）
+    * 颜色
+    * 定位
+    * 字体
+    * 生成内容
+    * 列表
+    * 外边距
+    * 内边距
+    * 定位
+    * 表格
+    * 文本
+    * 2D/3D 转换
+    * 过渡
+    * 用户界面
+    * 
+    3. 用 jsbin 快速学习一个属性
+    4. CSS 比 HTML 多了一些概念
+        1. 盒模型
+        2. 布局
+    5. CSS 学习段位
+        1. 给个图，就能实现
+        2. 给个图，就能给出多种方案实现
+        3. 给个图，就能给出最优雅的实现
+* JS
+    概念 + 逻辑
+    1. [关键词](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference)
+    2. 或者参考一本[教程](http://javascript.ruanyifeng.com/)
+    3. 一些基本概念
+        1. 闭包
+        2. 原型继承（面向对象）
+        3. 立即执行函数
+        4. 回调 / Promise
+        5. 作用域链
+        6. 异步
+    4. 一些逻辑
+        1. 排序算法
+
+## API
+
+* DOM
+```
+var button = document.getElementById('test')
+button.addEventListener('click',function(){
+  alert(1)
+})
+
+$('#test').on('click', function(){  
+})
+```
+* BOM
+* AJAX
+
+## HTTP
+
+## 英语
+
