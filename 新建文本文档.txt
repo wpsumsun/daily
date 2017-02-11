@@ -1,0 +1,47 @@
+
+    HTML、XML、XHTML 有什么区别	
+    HTML，超文本标记语言，是语法较为松散的、不严格的Web语言；
+    XML，可扩展标记语言，主要用于存储数据和结构；
+    XHTML，可扩展超文本标记语言，基于XML，作用与HTML类似，但语法更严格。
+
+    怎样理解 HTML 语义化
+    语义化HTML是一种编写HTML的方式
+    选择合适的标签、使用合理的代码结构，便于开发者阅读，同时让浏览器的爬虫和机器很好地解析。
+    
+    怎样理解内容与样式分离的原则
+    写 HTML 的时候先不管样式, 重点放在HTML的结构和语义化上，让 HTML 能体现页面结构或者内容。之后再去写样式。
+    
+    有哪些常见的meta标签
+	<meta charset="utf-8"> 声明文档的编码格式
+	<meta http-equiv="X-UA_compatible" content="IE=edge,chrome=1">如果浏览器内核为IE内核，就用IE的最新版本去渲染，如果是双核的话，就用webkit内核渲染
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">使页面内容在移动端更合理的展示
+	<meta name="keywords" content=""><meta name="description" content=""> 页面的关键词和描述  便于搜索引擎优化
+    文档声明的作用?严格模式和混杂模式指什么?<!doctype html> 的作用?
+	文档声明用来告知浏览器当前文档所使用的HTML或XHTML规范。
+	严格模式是指按照浏览器所支持的最高版本来实现效果；混杂模式则相反，尽可能向后兼容。使用老版本浏览器的显示模式。
+	是用来声明当前文档为html5的方法
+	
+    浏览器乱码的原因是什么？如何解决
+	文档中charset声明的编码格式与编辑器自动保存时选的格式不相同或者没有用charset声明编码格式
+	charset声明的编码格式应该与文件保存时选择的编码格式一致
+    常见的浏览器有哪些，什么内核
+	1. 使用Trident的是internet explorer，国产的绝大部分浏览器。Trident是就是ie内核
+	2. 使用Gecko的是Mozilla Firefox，使用 Gecko 内核的浏览器也有不少，如 Netscape MozillaSuite/SeaMonkey 等
+	3. 使用Presto的是opera，这是目前公认网页浏览速度最快的浏览器内核
+	4. 使用WebKit的有苹果的safari，谷歌的chrome，还有国产的大部分双核浏览器其中一核就是WebKit
+    列出常见的标签，并简单介绍这些标签用在什么场景
+    
+    	h1~h6 标题
+	p 段落，表示大段文字
+	a 链接，链到一个地址
+	img 展示一张图片 
+	div 语义为“一大块”，用于给页面划分区块，让结构更清晰
+	ul li unsort list 无序列表用于表示并列的内容，ul的直接子元素是li，可以嵌套
+	ol li order list 有序序列表 用于表示带步骤或者编号的并列内容 ol的直接子元素只能是li 可以嵌套
+	dl dt dd 用于展示一系列 “标题:内容... ”的场景	
+	button 按钮
+	em 需要强调一下
+	strong 很重要、强调性更强
+	iframe 用于嵌入一个页面 注意跨域操作问题
+	table 用于展示表格，不要用来做布局 thead tbody tfoot可省略，浏览器会自动添加 border-collapse: collapse;用于合并边框	
+

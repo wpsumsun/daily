@@ -6,3 +6,6 @@ http://jsbin.com/jakexuc/2/edit?html,output
 slides.js
 emmet_and_haml
 http://www.ruanyifeng.com/blog/2013/06/emmet_and_haml.html
+白屏和闪烁
+    [参考1](http://blog.shaochuancs.com/new-css-loading-method/)
+    [参考2](http://www.lai18.com/content/7624379.html?from=cancel)
