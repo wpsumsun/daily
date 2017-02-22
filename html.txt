@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Resume</title>
+</head>
+<body>
+<div class="contain">
+  <div class="info clearfix">
+    <div class="instructor clearfix">
+      <div class="img-wrap">
+        <img src="http://p1.bpimg.com/567571/8bbaa7a043f2271f.jpg" alt="">
+      </div>
+      <h1>Summer Wang</h1>
+      <p>Graphic &amp; Designer</p>
+    </div>
+    <div class="contacts">
+      <h3 class="inf-title spe-title">CONTACTS</h3>
+      <ul>
+        <li><i class="iconfont">&#xe600;</i>上海市徐汇区虹梅南路126弄</li>
+        <li><i class="iconfont">&#xe631;</i>18818206096</li>
+        <li><i class="iconfont">&#xe61b;</i>wpsumsun@126.com</li>
+        <li><i class="iconfont">&#xe60c;</i><a href="http://www.jianshu.com/u/84796b340416">http://www.jianshu.com/u/84796b340416</a></li>
+        <li><i class="iconfont">&#xe69f;</i><a href="https://github.com/wpsumsun">https://github.com/wpsumsun</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="experience">
+    <h3 class="inf-title">WORK EXPERIENCE</h3>
+    <ul class="inf-wrap">
+      <li>
+        <p class="title">理想三旬/<span>2015-11-1</span></p>
+        <p class="detail">就老去吧，孤独别醒来/你渴望的离开只是无处停摆/就歌唱吧，眼睛眯起来
+而热泪的崩坏只是没抵达的存在</p>
+      </li>
+      <li>
+        <p class="title">理想三旬/<span>2015-11-1</span></p>
+        <p class="detail">就老去吧，孤独别醒来/你渴望的离开只是无处停摆/就歌唱吧，眼睛眯起来
+而热泪的崩坏只是没抵达的存在</p>
+      </li>
+      <li>
+        <p class="title">理想三旬/<span>2015-11-1</span></p>
+        <p class="detail">就老去吧，孤独别醒来/你渴望的离开只是无处停摆/就歌唱吧，眼睛眯起来
+而热泪的崩坏只是没抵达的存在</p>
+      </li>
+    </ul>
+  </div>
+  <div class="education">
+    <h3 class="inf-title">EDUCATION</h3>
+    <ul class="inf-wrap">
+      <li>
+        <p class="title">理想三旬/<span>2015-11-1</span></p>
+        <p class="major">信息工程</p>
+        <p class="detail">就老去吧，孤独别醒来/你渴望的离开只是无处停摆/就歌唱吧，眼睛眯起来
+而热泪的崩坏只是没抵达的存在</p>
+      </li>
+       <li>
+        <p class="title">理想三旬/<span>2015-11-1</span></p>
+        <p class="major">信息工程</p>
+        <p class="detail">就老去吧，孤独别醒来/你渴望的离开只是无处停摆/就歌唱吧，眼睛眯起来
+而热泪的崩坏只是没抵达的存在</p>
+      </li>
+    </ul>
+  </div>
+    <div class="activities">
+      <h3 class="inf-title">EXTRA CURRIGULAR ACTIVITIES</h3>
+      <ul class="activity-wrap">
+        <li>
+          <p class="title">Volunter</p>
+          <p class="detail">就老去吧，孤独别醒来/你渴望的离开只是无处停摆/就歌唱吧，眼睛眯起来
+  而热泪的崩坏只是没抵达的存在</p>
+        </li>
+        <li>
+          <p class="title">Volunter</p>
+          <p class="detail">就老去吧，孤独别醒来/你渴望的离开只是无处停摆/就歌唱吧，眼睛眯起来
+  而热泪的崩坏只是没抵达的存在</p>
+        </li>
+      </ul>
+    </div>
+    <div class="skills">
+      <h3 class="inf-title">PROFESIONAL　SKILLS</h3>
+      <div class="skill-wrap">
+         <p>HTML &amp; CSS</p>
+          <p>JQUERY</p>
+          <p>JAVASCRIPT</p>
+          <p>PHOTOSHOP</p>
+          <p>VUE</p>
+          <p>REACT</p>
+      </div>
+         
+     
+    </div>
+</div>
+</body>
+</html>
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  font-family:"Microsoft YaHei";
+  font-size:14px;
+  background:#ccc;
+}
+ul{
+  list-style:none;
+}
+a{
+  text-decoration:none;
+}
+.clearfix{
+  content:"";
+  display:block;
+  clear:both;
+}
+.clearfix{
+  *zoom:1;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 237548 */
+  src: url('//at.alicdn.com/t/font_1utxczyj899hpvi.eot');
+  src: url('//at.alicdn.com/t/font_1utxczyj899hpvi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1utxczyj899hpvi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1utxczyj899hpvi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1utxczyj899hpvi.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" ;
+    font-size:20px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+  margin-right:8px;
+}
+.contain{
+  max-width:900px;
+  padding:50px;
+  background:#fff;
+  margin:50px auto;
+}
+.instructor{
+  width:60%;
+  float:left;
+}
+.img-wrap{
+  float:left;
+  margin:20px 30px;
+}
+.img-wrap img{
+  width:170px;
+  vertical-align:middle;
+}
+.instructor h1{
+  vertical-align:middle;
+  margin:20px 0 10px 0;
+}
+.contacts{
+  width:40%;
+  float:left;
+}
+.contacts ul li{
+  line-height:20px;
+  margin-top:8px;
+}
+.inf-title{
+  max-width:350px;
+  padding-bottom:5px;
+  border-bottom:1px solid #ccc;
+  margin-top:25px;
+}
+.spe-title{
+  border-bottom:3px solid #000;
+}
+.inf-wrap{
+  margin-top:30px;
+}
+.inf-wrap li{
+  padding:0 0 20px 40px;
+  border-left:1px solid #333;
+  position:relative;
+}
+.inf-wrap li:last-child{
+  padding-bottom:0;
+}
+.inf-wrap li:before{
+  content:"";
+  display:inline-block;
+  width:10px;
+  height:10px;
+  background:#333;
+  border-radius:50%;
+  position:absolute;
+  left:-5px;
+  top:-5px;
+}
+.inf-wrap .title{
+  position:relative;
+  top:-10px;
+}
+.title>span{
+  color:#666;
+}
+.major{
+  color:#666;
+  margin:-10px 0 10px 0;
+}
+.activities,.skills{
+  width:40%;
+  display:inline-block;
+  box-sizing:border-box; 
+  vertical-align:top;
+}
+.activity-wrap,.skill-wrap{
+  padding-left:50px;
+  margin-top:20px;
+}
+.title{
+  position:relative;
+}
+.skills{
+  margin-left:15%;
+}
+.activity-wrap li{
+  padding-bottom:10px;
+}
+.activity-wrap .title{
+  margin-bottom:10px;
+}
+.skill-wrap p{
+  display:inline-block;
+  margin-bottom:30px;
+  position:relative;
+  width:49%;
+  box-sizing:border-box;
+}
+.activity-wrap .title:before,.skills p:before{
+  content:"+";
+  display:inline-block;
+  width:20px;
+  height:20px;
+  line-height:18px;
+  text-align:center;
+  font-size:18px;
+  display:inline-block;
+  border:1px solid #666;
+  border-radius:50%;
+  position:absolute;
+  left:-50px;
+  top:0px;
+}
