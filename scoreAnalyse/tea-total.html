@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>成绩分析</title>
+	<link rel="stylesheet" type="text/css" href="css/score.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/analyse.js"></script>
+</head>
+<body>
+	<div class="head">
+		<div class="head-main clearfix">
+			<div class="fl logo-wrap">
+				<img src="img/score-logo.png">
+			</div>
+			<ul class="nav-list">
+				<li class="li-active" onclick="document.location.href='tea-score.html'">
+					<img src="img/score-4.png">
+					<span>总分分析</span>
+				</li>
+				<li onclick="document.location.href='tutor-score.html'">
+					<img src="img/score-3.png">
+					<span>单科分析</span>
+				</li>
+			</ul>
+			<div class="login-inf fr">
+				<span>欢迎您，王欣蕾<em>【退出】</em></span>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<!--==================单科分析=====================-->
+		<div class="teascore-con clearfix tutor-con">
+			<div class="single-l fl">
+				<label for="">
+					<input type="text" placeholder="关键词搜索">
+					<input type="submit" value="搜索">
+				</label>
+				<div class="single-l-main">
+					<dl class="left-select clearfix">
+						<dt>全部考试列表</dt>
+						<dd>
+							<span class="term-select">学期</span>
+							<div class="hide-checkbox term-checkbox">
+								<label for=""><input type="checkbox">2015-2016学年</input></label>
+								<label for=""><input type="checkbox">2015-2016学年</input></label>
+								<label for=""><input type="checkbox">2015-2016学年</input></label>
+								<label for=""><input type="checkbox">2015-2016学年</input></label>
+								<label for=""><input type="checkbox">2015-2016学年</input></label>
+								<div class="btn-wrap">
+									<button class="btn-sure">确定</button>
+									<button class="btn-esc">取消</button>
+								</div>
+							</div>
+						</dd>
+						<dd>
+							<span class="type-select">考试类型</span>
+							<div class="hide-checkbox type-checkbox">
+								<label for=""><input type="checkbox">随堂</input></label>
+								<label for=""><input type="checkbox">月考</input></label>
+								<label for=""><input type="checkbox">期中考试</input></label>
+								<label for=""><input type="checkbox">期末考试</input></label>
+								<label for=""><input type="checkbox">区域联考</input></label>
+								<div class="btn-wrap">
+									<button class="btn-sure">确定</button>
+									<button class="btn-esc">取消</button>
+								</div>
+							</div>	
+						</dd>
+					</dl>
+					<dl class="analyse-list">
+						<dd>2015-2016学年第一学期期末考试</dd>
+						<dd>2015-2016学年第一学期期末考试</dd>
+						<dd>2015-2016学年第一学期期末考试</dd>
+						<dd>2015-2016学年第一学期期末考试</dd>
+						<dd>2015-2016学年第一学期期末考试</dd>
+						<dd>2015-2016学年第一学期期末考试</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="single-r fr">
+				<div class="score-tab">
+					<ul class="clearfix">
+						<li class="li-cur li-other">学生排名</li>
+						<li>平均分统计</li>
+						<li>等地分布</li>
+						<li>排名区域分析</li>
+					</ul>
+				</div>
+				<div class="right-title clearfix">
+					<select name="" id="">
+						<option value="">选择班级</option>
+					</select>
+					<div class="hide-op fl">
+						<input type="text" placeholder="学生姓名">
+						<button>查询</button>
+					</div>
+					<button class="btn out-btn fr">导出</button>
+					<ul class="clearfix fr">
+						<li>统计图</li>
+						<li class="li-on">统计表</li>
+					</ul>			
+				</div>
+				<div class="score-main">
+					<!--==================学生排名=====================-->	
+					<div class="stu-rank">
+						<table class="newTable">
+							<thead>
+								<tr>
+									<th style="width:12%">姓名</th>
+									<th style="width:12%">学号</th>
+									<th style="width:12%">语文</th>
+									<th style="width:12%">数学</th>
+									<th style="width:12%">英语</th>
+									<th style="width:12%">总分</th>
+									<th style="width:14%">班级排名</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>林宇飞</td>
+									<td>0024</td>
+									<td>92</td>
+									<td>2</td>
+									<td>9</td>
+									<td>563</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>陈旺</td>
+									<td>0029</td>
+									<td>92</td>
+									<td>2</td>
+									<td>9</td>
+									<td>560</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>王林成</td>
+									<td>0024</td>
+									<td>92</td>
+									<td>2</td>
+									<td>9</td>
+									<td>563</td>
+									<td>1</td>
+								</tr>	
+								<tr>
+									<td>夏柏河</td>
+									<td>0035</td>
+									<td>88</td>
+									<td>8</td>
+									<td>65</td>
+									<td>555</td>
+									<td>4</td>
+								</tr>
+								<tr>
+									<td>陈宇</td>
+									<td>0032</td>
+									<td>85</td>
+									<td>9</td>
+									<td>69</td>
+									<td>557</td>
+									<td>3</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--==================单科年级排名=====================-->
+					<div class="class-rank">
+						<table class="newTable">
+							<thead>
+								<tr>
+									<th style="width:15%">等第</th>
+									<th style="width:15%">人数</th>
+									<th style="width:15%">班级占比</th>
+									<th style="width:15%">年级占比</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>A</td>
+									<td>1</td>
+									<td>2%</td>
+									<td>1%</td>
+								</tr>
+								<tr>
+									<td>B</td>
+									<td>1</td>
+									<td>2%</td>
+									<td>1%</td>
+								</tr>
+								<tr>
+									<td>C</td>
+									<td>1</td>
+									<td>2%</td>
+									<td>1%</td>
+								</tr>
+								<tr>
+									<td>D</td>
+									<td>1</td>
+									<td>2%</td>
+									<td>1%</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--==================排名区域分析=====================-->
+					<div class="subject-analyse">
+						<table class="newTable">
+							<thead>
+								<tr>
+									<th style="width:20%;">班级</th>
+									<th style="width:20%;">前10名人数/百分比</th>
+									<th style="width:20%;">前50名人数/百分比</th>
+									<th style="width:20%;">前100名人数/百分比</th>
+									<th style="width:20%;">前200名人数/百分比</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>三年（2）班</td>
+									<td>3/2%</td>
+									<td>3/2%</td>
+									<td>3/2%</td>
+									<td>3/2%</td>
+								</tr>
+								<tr>
+									<td>三年（2）班</td>
+									<td>3/2%</td>
+									<td>3/2%</td>
+									<td>3/2%</td>
+									<td>3/2%</td>
+								</tr>
+								<tr>
+									<td>三年（2）班</td>
+									<td>3/2%</td>
+									<td>3/2%</td>
+									<td>3/2%</td>
+									<td>3/2%</td>
+								</tr>
+								<tr>
+									<td>三年（2）班</td>
+									<td>3/2%</td>
+									<td>3/2%</td>
+									<td>3/2%</td>
+									<td>3/2%</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--==================添加微课弹窗=====================-->
+<!-- 	<div class="alert addmicro-alert">
+	<div class="alert-top clearfix">
+		<span class="alert-l fl">添加微课</span>
+		<span class="alert-r fr">×</span>
+	</div>
+	<div class="alert-main">
+		<div class="alert-div">
+			<span class="type-name">微课名称</span>
+			<input type="text">
+		</div> 
+		<div class="alert-div">
+			<span class="type-name">微课上传</span>
+			<div class="select-up clearfix">
+				<div class="video-select fl">
+					<button class="select-btn">选择视频</button>
+					<input type="file">
+				</div>
+				<button class="video-upload fr">上传</button>
+			</div>
+		</div>
+		<div class="alert-div inline-div">
+			<span class="type-name">年级</span>
+			<select>
+				<option>一年级</option>
+			</select>
+		</div> 
+		<div class="alert-div inline-div">
+			<span class="type-name">年级</span>
+			<select>
+				<option>一年级</option>
+			</select>
+		</div> 
+		<div class="alert-div">
+			<span class="type-name">标签</span>
+			<div class="label-wrap">
+				<span>气温气候<img src="img/span-del.png"></span>
+			</div>
+			<span class="label-span">常用标签：</span>
+			<div class="label-usually">
+				<em>物理</em>
+				<em>化学</em>
+				<em>兴趣微课</em>
+				<em>地理地质</em>
+			</div>
+		</div>
+	</div>
+	<div class="alert-bottom">
+		<button class="btn-sure">确定</button>
+		<button class="btn-esc">取消</button>
+	</div>
+</div> -->
+<!--==================背景层=====================-->
+<div class="bg"></div>
+<div class="white-bg"></div>
+</body>
+</html>

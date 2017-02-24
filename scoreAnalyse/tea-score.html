@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>成绩分析</title>
+	<link rel="stylesheet" type="text/css" href="css/score.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/head-analyse.js"></script>
+</head>
+<body>
+	<div class="head">
+		<div class="head-main clearfix">
+			<div class="fl logo-wrap">
+				<img src="img/score-logo.png">
+			</div>
+			<ul class="nav-list headtea-nav">
+				<li onclick="document.location.href='tea-trend.html'">
+					<img src="img/score-3.png">
+					<span>趋势分析</span>
+				</li>
+				<li class="li-active" onclick="document.location.href='tea-score.html'">
+					<img src="img/score-2.png">
+					<span>考试分析</span>
+				</li>
+			</ul>
+			<div class="login-inf fr">
+				<span>欢迎您，王欣蕾<em>【退出】</em></span>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<!--==================单科分析=====================-->
+		<div class="teascore-con clearfix headtea-main">
+			<div class="single-l fl">
+				<label for="">
+					<input type="text" placeholder="关键词搜索">
+					<input type="submit" value="搜索">
+				</label>
+				<div class="single-l-main">
+					<dl class="left-select clearfix">
+						<dt>全部考试列表</dt>
+						<dd>
+							<span class="term-select">学期</span>
+							<div class="hide-checkbox term-checkbox">
+								<label for=""><input type="checkbox">2015-2016学年</input></label>
+								<label for=""><input type="checkbox">2015-2016学年</input></label>
+								<label for=""><input type="checkbox">2015-2016学年</input></label>
+								<label for=""><input type="checkbox">2015-2016学年</input></label>
+								<label for=""><input type="checkbox">2015-2016学年</input></label>
+								<div class="btn-wrap">
+									<button class="btn-sure">确定</button>
+									<button class="btn-esc">取消</button>
+								</div>
+							</div>
+						</dd>
+						<dd>
+							<span class="type-select">考试类型</span>
+							<div class="hide-checkbox type-checkbox">
+								<label for=""><input type="checkbox">随堂</input></label>
+								<label for=""><input type="checkbox">月考</input></label>
+								<label for=""><input type="checkbox">期中考试</input></label>
+								<label for=""><input type="checkbox">期末考试</input></label>
+								<label for=""><input type="checkbox">区域联考</input></label>
+								<div class="btn-wrap">
+									<button class="btn-sure">确定</button>
+									<button class="btn-esc">取消</button>
+								</div>
+							</div>	
+						</dd>
+					</dl>
+					<dl class="analyse-list">
+						<dd>2015-2016学年第一学期期末考试</dd>
+						<dd>2015-2016学年第一学期期末考试</dd>
+						<dd>2015-2016学年第一学期期末考试</dd>
+						<dd>2015-2016学年第一学期期末考试</dd>
+						<dd>2015-2016学年第一学期期末考试</dd>
+						<dd>2015-2016学年第一学期期末考试</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="single-r fr head-div">
+				<div class="score-tab">
+					<ul class="clearfix" style="border-bottom:1px solid #2e51a8;">
+						<li class="li-cur">年级排名</li>
+						<li>分数段分布</li>
+						<li>合格率</li>
+						<li>等第分布</li>
+						<li>排名区域分析</li>
+					</ul>
+				</div>
+				<div class="right-title clearfix">
+					<button class="btn out-btn fr">导出</button>
+					<!-- <div class="hide-op fr">
+									<input type="text" placeholder="学生姓名">
+									<button>查询</button>
+								</div>
+								<select name="" id="">
+									<option value="">三年（2）班</option>
+								</select>	 -->			
+					<ul class="clearfix fl">
+						<li>统计图</li>
+						<li class="li-on">统计表</li>
+					</ul>
+					
+				</div>
+				<div class="table-main">
+					<!--==================学生排名=====================-->
+					<!-- <table class="newTable table-rank">
+						<thead>
+							<tr>
+								<th style="width:12%">姓名</th>
+								<th style="width:12%">学号</th>
+								<th style="width:12%">性别</th>
+								<th style="width:12%">总分</th>
+								<th style="width:12%">年级排名</th>
+								<th style="width:12%">年级推进率</th>
+								<th style="width:14%">班级排名</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>林宇飞</td>
+								<td>0024</td>
+								<td>男</td>
+								<td>563</td>
+								<td>9</td>
+								<td>
+									<img src="img/rise.png" alt="">+5
+								</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>陈旺</td>
+								<td>0024</td>
+								<td>男</td>
+								<td>563</td>
+								<td>9</td>
+								<td>
+									<img src="img/down.png" alt="">-5
+								</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>夏柏河</td>
+								<td>0024</td>
+								<td>男</td>
+								<td>563</td>
+								<td>9</td>
+								<td>
+									<img src="img/rise.png" alt="">+5
+								</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>林真</td>
+								<td>0024</td>
+								<td>男</td>
+								<td>563</td>
+								<td>9</td>
+								<td>
+									<img src="img/rise.png" alt="">+5
+								</td>
+								<td>4</td>
+							</tr>
+							<tr>
+								<td>张淑英</td>
+								<td>0024</td>
+								<td>男</td>
+								<td>563</td>
+								<td>9</td>
+								<td>
+									<img src="img/rise.png" alt="">+5
+								</td>
+								<td>5</td>
+							</tr>
+						</tbody>
+					</table> -->
+					<!--==================年级排名=====================-->
+					<table class="newTable table-grade">
+						<tr>
+							<th style="width:25%;">班级</th>
+							<th style="width:25%;">班级平均分</th>
+							<th style="width:25%;">年级排名</th>
+							<th style="width:25%;">推进率</th>
+						</tr>
+						<tr>
+							<td>高二（1）班</td>
+							<td>568</td>
+							<td>11</td>
+							<td>
+								<img src="img/rise.png" alt="">+5
+							</td>
+						</tr>
+						<tr>
+							<td>高二（1）班</td>
+							<td>568</td>
+							<td>11</td>
+							<td>
+								<img src="img/rise.png" alt="">+5
+							</td>
+						</tr>
+						<tr>
+							<td>高二（1）班</td>
+							<td>568</td>
+							<td>11</td>
+							<td>
+								<img src="img/down.png" alt="">+5
+							</td>
+						</tr>
+						<tr>
+							<td>高二（1）班</td>
+							<td>568</td>
+							<td>11</td>
+							<td>
+								<img src="img/rise.png" alt="">+5
+							</td>
+						</tr>
+					</table>
+					<!--==================分数段分布=====================-->
+					<table class="newTable table-band">
+						<tr>
+							<th style="width:25%;">分数段</th>
+							<th style="width:25%;">总人数</th>
+							<th style="width:25%;">男生</th>
+							<th style="width:25%;">女生</th>
+						</tr>
+						<tr>
+							<td>600~650</td>
+							<td>200</td>
+							<td>120</td>
+							<td>80</td>
+						</tr>
+						<tr>
+							<td>600~650</td>
+							<td>200</td>
+							<td>120</td>
+							<td>80</td>
+						</tr>
+						<tr>
+							<td>600~650</td>
+							<td>200</td>
+							<td>120</td>
+							<td>80</td>
+						</tr>
+						<tr>
+							<td>600~650</td>
+							<td>200</td>
+							<td>120</td>
+							<td>80</td>
+						</tr>
+						<tr>
+							<td>600~650</td>
+							<td>200</td>
+							<td>120</td>
+							<td>80</td>
+						</tr>
+					</table>
+					<!--==================合格率分布=====================-->
+					<table class="newTable table-pass">
+						<tr>
+							<th style="width:25%;">班级</th>
+							<th style="width:25%;">总人数</th>
+							<th style="width:25%;">合格人数</th>
+							<th style="width:25%;">合格率</th>
+						</tr>
+						<tr>
+							<td>(2)班</td>
+							<td>40</td>
+							<td>36</td>
+							<td>90%</td>
+						</tr>
+						<tr>
+							<td>(2)班</td>
+							<td>40</td>
+							<td>36</td>
+							<td>90%</td>
+						</tr>
+						<tr>
+							<td>(2)班</td>
+							<td>40</td>
+							<td>36</td>
+							<td>90%</td>
+						</tr>
+						<tr>
+							<td>(2)班</td>
+							<td>40</td>
+							<td>36</td>
+							<td>90%</td>
+						</tr>
+						<tr>
+							<td>(2)班</td>
+							<td>40</td>
+							<td>36</td>
+							<td>90%</td>
+						</tr>
+					</table>
+					<!--==================等第分布=====================-->
+					<table class="newTable table-level">
+						<tr>
+							<th rowspan=2 style="width:20%;">班级</th>
+							<th colspan=2 style="width:20%;">A+</th>
+							<th colspan=2 style="width:20%;">A</th>
+							<th colspan=2 style="width:20%;">B+</th>
+							<th colspan=2 style="width:20%;">B</th>
+						</tr>
+						<tr>
+							<th style="width:10%;">人数</th>
+							<th style="width:10%;">班级占比</th>
+							<th style="width:10%;">人数</th>
+							<th style="width:10%;">班级占比</th>
+							<th style="width:10%;">人数</th>
+							<th style="width:10%;">班级占比</th>
+							<th style="width:10%;">人数</th>
+							<th style="width:10%;">班级占比</th>
+						</tr>
+						<tr>
+							<td>（1）班</td>
+							<td>1</td>
+							<td>2%</td>
+							<td>5</td>
+							<td>10%</td>
+							<td>6</td>
+							<td>12%</td>
+							<td>13</td>
+							<td>26%</td>
+						</tr>
+						<tr>
+							<td>（1）班</td>
+							<td>1</td>
+							<td>2%</td>
+							<td>5</td>
+							<td>10%</td>
+							<td>6</td>
+							<td>12%</td>
+							<td>13</td>
+							<td>26%</td>
+						</tr>
+						<tr>
+							<td>（1）班</td>
+							<td>1</td>
+							<td>2%</td>
+							<td>5</td>
+							<td>10%</td>
+							<td>6</td>
+							<td>12%</td>
+							<td>13</td>
+							<td>26%</td>
+						</tr>
+						<tr>
+							<td>（1）班</td>
+							<td>1</td>
+							<td>2%</td>
+							<td>5</td>
+							<td>10%</td>
+							<td>6</td>
+							<td>12%</td>
+							<td>13</td>
+							<td>26%</td>
+						</tr>
+						<tr>
+							<td>（1）班</td>
+							<td>1</td>
+							<td>2%</td>
+							<td>5</td>
+							<td>10%</td>
+							<td>6</td>
+							<td>12%</td>
+							<td>13</td>
+							<td>26%</td>
+						</tr>
+					</table>
+					<!--==================排名区域分析=====================-->
+					<table class="newTable table-area">
+						<tr>
+							<th rowspan=2 style="width:20%;">班级</th>
+							<th colspan=2 style="width:20%;">前10名</th>
+							<th colspan=2 style="width:20%;">前50名</th>
+							<th colspan=2 style="width:20%;">前100名+</th>
+							<th colspan=2 style="width:20%;">前200名</th>
+						</tr>
+						<tr>
+							<th style="width:10%;">人数</th>
+							<th style="width:10%;">百分比</th>
+							<th style="width:10%;">人数</th>
+							<th style="width:10%;">百分比</th>
+							<th style="width:10%;">人数</th>
+							<th style="width:10%;">百分比</th>
+							<th style="width:10%;">人数</th>
+							<th style="width:10%;">百分比</th>
+						</tr>
+						<tr>
+							<td>三年（1）班</td>
+							<td>2</td>
+							<td>2%</td>
+							<td>10</td>
+							<td>10%</td>
+							<td>20</td>
+							<td>20%</td>
+							<td>30</td>
+							<td>30%</td>
+						</tr>
+						<tr>
+							<td>三年（1）班</td>
+							<td>2</td>
+							<td>2%</td>
+							<td>10</td>
+							<td>10%</td>
+							<td>20</td>
+							<td>20%</td>
+							<td>30</td>
+							<td>30%</td>
+						</tr>
+						<tr>
+							<td>三年（1）班</td>
+							<td>2</td>
+							<td>2%</td>
+							<td>10</td>
+							<td>10%</td>
+							<td>20</td>
+							<td>20%</td>
+							<td>30</td>
+							<td>30%</td>
+						</tr>
+						<tr>
+							<td>三年（1）班</td>
+							<td>2</td>
+							<td>2%</td>
+							<td>10</td>
+							<td>10%</td>
+							<td>20</td>
+							<td>20%</td>
+							<td>30</td>
+							<td>30%</td>
+						</tr>
+						<tr>
+							<td>三年（1）班</td>
+							<td>2</td>
+							<td>2%</td>
+							<td>10</td>
+							<td>10%</td>
+							<td>20</td>
+							<td>20%</td>
+							<td>30</td>
+							<td>30%</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="subject-select fr">
+				<dl>
+					<dt>学科</dt>
+					<dd>全部</dd>
+					<dd>语文</dd>
+					<dd>数学</dd>
+					<dd>英语</dd>
+					<dd>生物</dd>
+					<dd>政治</dd>
+					<dd>物理</dd>
+					<dd>化学</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<!--==================添加微课弹窗=====================-->
+<!-- 	<div class="alert addmicro-alert">
+	<div class="alert-top clearfix">
+		<span class="alert-l fl">添加微课</span>
+		<span class="alert-r fr">×</span>
+	</div>
+	<div class="alert-main">
+		<div class="alert-div">
+			<span class="type-name">微课名称</span>
+			<input type="text">
+		</div> 
+		<div class="alert-div">
+			<span class="type-name">微课上传</span>
+			<div class="select-up clearfix">
+				<div class="video-select fl">
+					<button class="select-btn">选择视频</button>
+					<input type="file">
+				</div>
+				<button class="video-upload fr">上传</button>
+			</div>
+		</div>
+		<div class="alert-div inline-div">
+			<span class="type-name">年级</span>
+			<select>
+				<option>一年级</option>
+			</select>
+		</div> 
+		<div class="alert-div inline-div">
+			<span class="type-name">年级</span>
+			<select>
+				<option>一年级</option>
+			</select>
+		</div> 
+		<div class="alert-div">
+			<span class="type-name">标签</span>
+			<div class="label-wrap">
+				<span>气温气候<img src="img/span-del.png"></span>
+			</div>
+			<span class="label-span">常用标签：</span>
+			<div class="label-usually">
+				<em>物理</em>
+				<em>化学</em>
+				<em>兴趣微课</em>
+				<em>地理地质</em>
+			</div>
+		</div>
+	</div>
+	<div class="alert-bottom">
+		<button class="btn-sure">确定</button>
+		<button class="btn-esc">取消</button>
+	</div>
+</div> -->
+<!--==================背景层=====================-->
+<div class="bg"></div>
+<div class="white-bg"></div>
+</body>
+</html>
