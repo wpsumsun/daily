@@ -94,11 +94,13 @@ a{text-decoration: none;}
 #header .welcome{
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 40px;
+	font-style: italic;
 }
 #header .greet{
 	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 50px;
 	margin: 25px 0;
+	font-weight: 700;
 }
 .btn{
 	display: inline-block;
@@ -122,6 +124,8 @@ a{text-decoration: none;}
 	font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 16px;
 	margin-bottom: 30px;
+	text-transform:none;
+	font-style:italic;
 }
 #services .iconfont{
 	font-size: 45px;
@@ -174,8 +178,8 @@ a{text-decoration: none;}
 	width: 100%;
 	height: auto;
 }
-.portfolio-wrap>div>a:hover .img-cover{
-	display: block;
+.portfolio-wrap>div .img-cover:hover{
+	opacity: 1;
 }
 .portfolio-wrap .info-title{
 	margin: 20px 0 5px 0;
@@ -187,8 +191,11 @@ a{text-decoration: none;}
 	position: absolute;
 	top: 0;
 	left: 0;
+	opacity: 0;
 	z-index: 2;
-	display: none;
+	ransition: all ease .5s;
+ 	-webkit-transition: all ease .5s;
+	-moz-transition: all ease .5s;
 }
 .img-cover i{
 	font-size: 40px;
@@ -248,4 +255,139 @@ a{text-decoration: none;}
 	color: #fff;
 	font-size: 18px;
 	font-weight: bold;
+	border: 7px solid #f1f1f1;
+	box-sizing:border-box;
+	border-radius: 50%;
+	width: 170px;
+	height: 170px;
+	text-align: center;
+}
+.about-story h4{
+	line-height: 26px;
+	margin-top: 40px;
+}
+#team>ul>li{
+	float:left;
+	width: 33.33333%;
+	box-sizing: border-box;
+	padding: 20px;
+	text-align: center
+}
+#team img{
+	border-radius: 50%;
+	margin-bottom: 10px;
+}
+.contact-type a{
+	display: inline-block;
+	width:40px;
+	height: 40px;
+	background: #333;
+	line-height: 40px;
+	text-align:center;
+	margin:10px;
+	border-radius:50%;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+	cursor: pointer
+}
+.contact-type .iconfont{
+	font-size: 18px;
+	color: #fff;
+}
+.contact-type a:hover{
+	background: #fed136;
+}
+#team .info-detail{
+	margin-bottom: 10px;
+}
+#team .team-text{
+	padding:0 150px;
+	text-align: center;
+	line-height: 1.5;
+	color:#666;
+	margin-top: 20px;
+}
+#clients{
+	padding: 60px 0;
+}
+#clients a{
+	float: left;
+	display: inline-block;
+	width: 25%;
+	text-align: center;
+	box-sizing: border-box;
+}
+.contact-wrap{
+	background:#222 url(http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/map-image.png) no-repeat center center !important;
+}
+#contact .section-title h2{
+	color: #fff;
+}
+#contact form>div{
+	width: 50%;
+	float: left;
+	box-sizing:border-box;
+}
+#contact form input{
+	padding: 20px;
+	height:auto;
+	width: 95%;
+	border:1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+}
+#contact input::-moz-placeholder {
+    color: #999;
+    opacity: 1;
+	font-size: 18px;
+}
+#contact textarea::-moz-placeholder {
+    color: #999;
+    opacity: 1;
+	font-size: 18px;
+}
+#contact textarea{
+	padding: 20px;
+	height: 215px;
+	margin-bottom: 20px;
+	resize: none;
+	width: 95%;
+	border:1px solid #ccc;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+#contact .btn{
+	display: block;
+	margin: 0 auto;
+}
+.footer-wrap{
+	padding: 30px 0 !important;
+}
+#footer>div{
+	float: left;
+	box-sizing:border-box;
+	width:33.333333%;
+	height: 40px;
+	line-height: 40px;
+}
+#footer .copyright{
+	text-align: left;
+}
+#footer .contact-type{
+	text-align: center;
+}
+#footer .contact-type a{
+	margin:0 10px;
+}
+#footer .other-links li{
+	float: right;
+	margin-left:10px;
+}
+#footer .other-links li a{
+	color: #fed136;
+}
+#footer .other-links li a:hover{
+	text-decoration: underline;
 }
