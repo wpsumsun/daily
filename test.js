@@ -4,28 +4,13 @@
 
 
 
-function friendlyDate(time){
-    var offsetTime=new Date().getTime()-time;
-    var mins=offsetTime/(60*1000);
-    var hours=offsetTime/(60*60*1000);
-    var days=offsetTime/(24*60*60*1000);
-    var  mons=offsetTime/(30*24*60*60*1000);
-    var  years=offsetTime/(12*30*24*60*60*1000);
-    if(mins<1){
-        return "刚刚";
-    }
-    else if(hours<1){
-        return "三分钟前";
-    }
-    else if(days<1){
-        return "8小时前";
-    }
-    else if(mons<1){
-        return "3天前";
-    }
-    else if(years<1){
-        return "2个月前";
-    }else{
-        return "8年前";
-    }
+
+function isValidPassword(str){
+    if(str.length<6||str.length>20||/\W/.test(str)){return false}
+    var count=0;
+    if(/[A-Z]/.test(str)){count++}
+    if(/[a-z]/.test(str)){count++}
+    if(/[0-9]/.test(str)){count++}
+    if(/_/.test(str)){count++}
+    return count>=2?true:false;
 }
