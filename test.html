@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{padding: 0;margin: 0;}
+        ul{list-style: none}
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .tab{
+            width: 600px;
+            margin: 100px auto;
+        }
+        .tab-head{
+            border:1px solid #ccc;
+            
+        }
+        .tab-head li{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            width: 33.33%;
+            box-sizing: border-box;
+            float: left;
+            cursor: pointer;
+        }
+        .tab-head li.active{
+            background: #ccc;
+        }
+        .tab-content{
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            min-height: 300px;
+        }
+         .tab-content li{
+             display: none;
+         }
+         .tab-content li.active{
+             display: block;
+         }
+    </style>
+</head>
+<body>
+<div class="tab">
+    <ul class="tab-head clearfix">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <ul class="tab-content">
+        <li class="active">con1</li>
+        <li>con2</li>
+        <li>con3</li>
+    </ul>
+</div>
+<script>
+    var tabHead=document.querySelectorAll(".tab-head li");
+    var tabCon=document.querySelectorAll(".tab-content li");
+    for(var i=0;i<tabHead.length;i++){
+        tabHead[i].addEventListener("click",function(){
+            tabHead.classList.remove("active");
+            this.classList.add(remove);
+            tabCon.classList.remove("active");
+            tabCon[i].classList.add("active");
+        })
+    }
+</script>
+
+</body>
+</html>
