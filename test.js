@@ -1,7 +1,13 @@
-！
-<script>
-var ul=document.querySelector('.ul');
-ul.addEventListener("click",function(e){
-    console.log(e.target.innerText);
-})
-</script>
+
+
+
+
+
+
+var fnArr = [];
+    for (var i = 0; i < 10; i ++) {
+        fnArr[i] =  function(){
+    	    return i;
+        };
+    }
+    console.log( fnArr[3]() );
