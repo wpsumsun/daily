@@ -4,72 +4,74 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        *{padding: 0;margin: 0;}
-        ul{list-style: none}
-        .clearfix:after{
-            content: "";
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .fr{float: right;}
+        .bg{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, .4);
+            z-index: 9;
+            display: none;
+        }
+        .dialog{
+            width: 300px;
+            height: 300px;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 99;
+            display: none;
+        }
+        .show{
             display: block;
-            clear: both;
         }
-        .tab{
-            width: 600px;
-            margin: 100px auto;
-        }
-        .tab-head{
-            border:1px solid #ccc;
-            
-        }
-        .tab-head li{
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-            width: 33.33%;
-            box-sizing: border-box;
-            float: left;
-            cursor: pointer;
-        }
-        .tab-head li.active{
-            background: #ccc;
-        }
-        .tab-content{
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-top: none;
-            min-height: 300px;
-        }
-         .tab-content li{
-             display: none;
-         }
-         .tab-content li.active{
-             display: block;
-         }
     </style>
 </head>
+
 <body>
-<div class="tab">
-    <ul class="tab-head clearfix">
-        <li class="active">tab1</li>
-        <li>tab2</li>
-        <li>tab3</li>
-    </ul>
-    <ul class="tab-content">
-        <li class="active">con1</li>
-        <li>con2</li>
-        <li>con3</li>
-    </ul>
-</div>
-<script>
-    var tabHead=document.querySelectorAll(".tab-head li");
-    var tabCon=document.querySelectorAll(".tab-content li");
-    for(var i=0;i<tabHead.length;i++){
-        tabHead[i].addEventListener("click",function(){
-            tabHead.classList.remove("active");
-            this.classList.add(remove);
-            tabCon.classList.remove("active");
-            tabCon[i].classList.add("active");
+    <button class="alert-btn">点击</button>
+    <div class="dialog"><button>取消</button><span class="fr">x</span></div>
+    <div class="bg"></div>
+    <script>
+        var btn=document.querySelector("button");
+        var dialog=document.querySelector(".dialog");
+        var closeX=document.querySelector(".dialog span");
+        var cancelBtn=document.querySelector(".dialog button");
+        var bg=document.querySelector(".bg");
+        btn.addEventListener("click",function(e){
+            e.stopPropagation();
+            dialog.classList.add("show");
+            bg.classList.add("show");
         })
-    }
-</script>
+        document.body.addEventListener("click",function(e){
+            e.stopPropagation();
+            dialog.classList.remove("show");
+            bg.classList.remove("show");
+        })
+       
+        cancelBtn.addEventListener("click",function(e){
+            e.stopPropagation();
+            dialog.classList.remove("show");
+            bg.classList.remove("show");
+        })
+        
+        closeX.addEventListener("click",function(e){
+            e.stopPropagation();
+            dialog.classList.remove("show");
+            bg.classList.remove("show");
+        })
+        dialog.addEventListener("click",function(e){
+            e.stopPropagation();
+        })
+    </script>
 
 </body>
 </html>
