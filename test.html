@@ -6,20 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        label{
+            padding-left: 30px;
+            background: url(./checkbox.png) no-repeat 7px 1px;
+        }
+        input[type="checkbox"]{
+           visibility: hidden;
+        }
+        input[type="checkbox"]:checked+label{
+            background: url(./checkbox2.png) no-repeat 7px 1px;
+        }
+    </style>
 </head>
 
 <body>
+    <div>
+        <input type="checkbox" id="one"><label for="one">旅游</label>
+        <input type="checkbox" id="two"><label for="two">读书</label>
+    </div>
     <script>
-        for (var i = 0; i < 5; i++) {
-            (function () {
-                var n=i;
-                setTimeout(function () {
-                    console.log('delayer:' + n);
-                }, 0);
-            })(i)
 
-            console.log(i);
-        }
     </script>
 </body>
 
