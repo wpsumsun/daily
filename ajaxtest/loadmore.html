@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    .load-more {
+        display: inline-block;
+        padding: 5px 20px;
+        background: #3999d5;
+        color: #fff;
+        margin: 10px auto;
+    }
+    
+    .news-wrap li {
+        height: 30px;
+        line-height: 30px;
+        text-align: left;
+        padding-left: 20px;
+        border: 1px solid #666;
+        margin-bottom: 10px;
+    }
+</style>
+
+<body>
+    <ul class="news-wrap"></ul>
+    <a href="javascript:;" class="load-more">加载更多</a>
+    <script>
+        var loadMore=document.querySelector('.load-more');
+        var wrap=document.querySelector('.news-wrap');
+        //加载更多
+        loadMore.addEventListener('click',function(){
+            ajax({
+                url:'/loadmore',
+                type:'get',
+                data:{
+                    index:0,
+                    length:5
+                },
+                success:render,
+                error:function(){
+                    console.log("出错了");
+                }
+            });
+        })
+        //render
+        function render(data){
+            var fragment=document.createDocumentFragment();
+            for(var i=0;i<data.length;i++){
+                var node=document.createElement("li");
+                li.innerText=data[i];
+                fragment.appendChild(li);
+            }
+            wrap.appendChild(fragment);
+        }
+        /*ajax方法*/
+        function ajax(opts) {
+            opts.success = opts.success || function () { };
+            opts.error = opts.error || function () { };
+            opts.type = opts.type || 'get';
+            opts.dataType = opts.dataType || 'json';
+            opts.data = opts.data || {};
+            var dataStr = '';
+            for (var key in opts.data) {
+                dataStr += key + '=' + opts[key] + '&';
+            }
+            dataStr = dataStr.substr(0,dataStr.length - 1);
+            var xhr = new XMLHttpRequest();
+            xhr, onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200 || xhr.status === 304) {
+                        if (opts.dataType === 'text') {
+                            opts.success(xhr.responseText);
+                        }
+                        if (opts.dataType === 'json') {
+                            var json = JSON.parse(xhr.responseText);
+                        }
+                    }
+                } else {
+                    opts.error;
+                }
+            }
+
+            if (opts.type.toLowerCase() === "post") {
+                xhr.open(opts.type, opts.url, true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                xhr.send(dataStr);
+            }
+            if (opts.type.toLowerCase() === "get") {
+                xhr.open(opts.type, opts.url + '?' + dataStr, true);
+                xhr.send();
+            }
+        }
+    </script>
+</body>
+
+</html>

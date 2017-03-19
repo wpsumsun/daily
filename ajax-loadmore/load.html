@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    .load-more {
+        display: inline-block;
+        padding: 5px 20px;
+        background: #3999d5;
+        color: #fff;
+        margin: 10px auto;
+        text-decoration: none;
+    }
+    
+    .news-wrap li {
+        height: 30px;
+        line-height: 30px;
+        text-align: left;
+        padding-left: 20px;
+        border: 1px solid #666;
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <ul class="news-wrap"></ul>
+    <a href="javascript:;" class="load-more">加载更多</a>
+    <script>
+        var loadMore=document.querySelector('.load-more');
+        var wrap=document.querySelector('.news-wrap');
+        var pageIndex=0;
+        var onOff=true;
+        loadMore.addEventListener("click",function(){
+            if(!onOff){
+                return;
+            }
+            var xhr=new XMLHttpRequest();
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4){
+                    if(xhr.status===200||xhr.status===304){
+                        var result=JSON.parse(xhr.responseText);
+                        var fragment=document.createDocumentFragment();
+                        for(var i=0;i<result.length;i++){
+                            var node=document.createElement("li");
+                            node.innerText=result[i];
+                            fragment.appendChild(node);
+                        }
+                        wrap.appendChild(fragment);
+                    }
+                }else{
+                    console.log("出错了");
+                }
+                onOff=true;
+            }
+            xhr.open('get','/loadmore?index='+pageIndex+'&length=5',true);
+            xhr.send();
+            pageIndex+=5;
+            onOff=false;
+        })
+       
+    </script>
+</body>
+</html>
