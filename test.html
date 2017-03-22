@@ -1,26 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<meta charset="utf-8">
+<title>JS Bin</title>
 </head>
-
-<body>
-    <script>
-        for (var i = 0; i < 5; i++) {
-            (function () {
-                var n=i;
-                setTimeout(function () {
-                    console.log('delayer:' + n);
-                }, 0);
-            })(i)
-
-            console.log(i);
+  <style>
+    .back-top{
+      padding:10px;
+      background:#3999d5;
+      color:#fff;
+      position:fixed;
+      bottom:0;
+      right: 0;
+      display:none;
+    }
+  </style>
+  <script>
+    $(function(){
+      $(window).scroll(function(){
+        var $top=$(window).scrollTop();
+        if($top>200){
+          $('.back-top').show();
+        }else{
+          $('.back-top').hide();
         }
-    </script>
+      })
+      $('.back-top').click(function(){
+        $('html,body').animate({scrollTop:0},400);
+      })
+    })
+  </script>
+</head>
+<body>
+  top<br>
+  1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>
+<div class="back-top">返回顶部</div>
 </body>
-
 </html>
