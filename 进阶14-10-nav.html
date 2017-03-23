@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    .clearfix {
+        *zoom: 1;
+    }
+    
+    .nav>ul {
+        width: 200px;
+        background: #3999d5;
+        color: #fff;
+        margin: 100px 0 0 100px;
+    }
+    
+    .nav>ul>li {
+        height: 28px;
+        line-height: 28px;
+        border-bottom: 1px solid #ccc;
+        padding:0 10px 0 20px;;
+        position: relative;
+    }
+    
+    .nav>ul>li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav>ul>li:after {
+        content: ">";
+        float: right;
+    }
+    
+    .nav li>ul {
+        width: 200px;
+        position: absolute;
+        left: 200px;
+        top: 0;
+        border: 1px solid #ccc;
+        display: none;
+    }
+    
+    .nav li>ul>li {
+        float: left;
+        width: 50%;
+        line-height: 30px;
+        padding-left: 15px;
+        text-align: left;
+        color: #666;
+        cursor: pointer;
+    }
+</style>
+<script>
+    $(function () {
+        $('.nav>ul>li').hover(function(){
+            $(this).children('ul').fadeIn();
+        },function(){
+            $(this).children('ul').fadeOut();
+        })
+    })
+
+</script>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li>
+                <span>珠宝玉器</span>
+                <ul class="hide clearfix">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>水晶</li>
+                    <li>珍珠</li>
+                </ul>
+            </li>
+            <li>
+                <span>珠宝玉器</span>
+                <ul class="hide clearfix">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>水晶</li>
+                    <li>珍珠</li>
+                    <li>水晶</li>
+                    <li>珍珠</li>
+                </ul>
+            </li>
+            <li>
+                <span>珠宝玉器</span>
+                <ul class="hide clearfix">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>水晶</li>
+                    <li>珍珠</li>
+                </ul>
+            </li>
+            <li>
+                <span>珠宝玉器</span>
+                <ul class="hide clearfix">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>水晶</li>
+                    <li>珍珠</li>
+                    <li>水晶</li>
+                    <li>珍珠</li>
+                </ul>
+            </li>
+            <li>
+                <span>珠宝玉器</span>
+                <ul class="hide clearfix">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>水晶</li>
+                    <li>珍珠</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
