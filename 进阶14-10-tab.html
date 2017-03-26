@@ -29,15 +29,101 @@
     .clearfix {
         *zoom: 1;
     }
+    
+    .tab {
+        width: 600px;
+        margin: 30px 0 0 30px;
+    }
+    
+    .tab-head {
+        border-bottom: 1px solid #ccc;
+    }
+    
+    .tab-head li {
+        float: left;
+        padding: 4px 15px;
+        border: 1px solid #ccc;
+        border-bottom: none;
+        margin-right: 3px;
+        cursor: pointer;
+    }
+    
+    .tab-head li.active {
+        background: #ccc;
+        color: red;
+    }
+    
+    .tab-con {
+        width: 600px;
+        border: 1px solid #ccc;
+    }
+    
+    .tab-con ul li {
+        width: 31.6%;
+        padding: 0 10px 10px 0;
+        margin: 10px 5px 10px 5px;
+        border: 1px solid #ccc;
+        position: relative;
+        float: left;
+    }
+    
+    .tab-con ul li:hover .hide-bg {
+        display: block;
+    }
+    
+    .img-wrap {
+        width: 150px;
+        height: 150px;
+        text-align: center;
+    }
+    
+    .tab-con ul li>span {
+        color: red;
+    }
+    
+    .hide-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .4);
+        display: none;
+    }
+    
+    .hide-bg button {
+        width: 98px;
+        height: 30px;
+        background: #fff;
+        border: 1px solid red;
+        color: red;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+    }
+    
+    .hide {
+        display: none;
+    }
 </style>
 <script>
+    $(function () {
+        $(".tab-head li").click(function () {
+            var $index = $(this).index();
+            $(this).addClass("active").siblings().removeClass("active");
+            $(this).parents(".tab").find('.tab-con ul').addClass("hide");
+            $(this).parents(".tab").find('.tab-con ul').eq($index).removeClass("hide");
+        })
+    })
 
 </script>
 
 <body>
     <div class="tab">
         <ul class="tab-head clearfix">
-            <li>热门</li>
+            <li class="active">热门</li>
             <li>珠宝首饰</li>
             <li>奢侈品</li>
         </ul>
@@ -49,6 +135,9 @@
                     </div>
                     <p>春秋战国和氏璧</p>
                     <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
                 </li>
                 <li>
                     <div class="img-wrap">
@@ -56,6 +145,9 @@
                     </div>
                     <p>春秋战国和氏璧</p>
                     <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
                 </li>
                 <li>
                     <div class="img-wrap">
@@ -63,38 +155,126 @@
                     </div>
                     <p>春秋战国和氏璧</p>
                     <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
                 </li>
             </ul>
+            <ul class="clearfix hide">
+                <li>
+                    <div class="img-wrap">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                    </div>
+                    <p>春秋战国和氏璧2</p>
+                    <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-wrap">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                    </div>
+                    <p>春秋战国和氏璧2</p>
+                    <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-wrap">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                    </div>
+                    <p>春秋战国和氏璧2</p>
+                    <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
+                </li>
+            </ul>
+            <ul class="clearfix hide">
+                <li>
+                    <div class="img-wrap">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                    </div>
+                    <p>春秋战国和氏璧3</p>
+                    <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-wrap">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                    </div>
+                    <p>春秋战国和氏璧3</p>
+                    <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-wrap">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                    </div>
+                    <p>春秋战国和氏璧3</p>
+                    <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab">
+        <ul class="tab-head clearfix">
+            <li class="active">热门</li>
+            <li>珠宝首饰</li>
+            <li>奢侈品</li>
+        </ul>
+        <div class="tab-con">
             <ul class="clearfix">
                 <li>
                     <div class="img-wrap">
                         <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
                     </div>
-                    <p>春秋战国和氏璧1</p>
+                    <p>春秋战国和氏璧</p>
                     <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
                 </li>
                 <li>
                     <div class="img-wrap">
                         <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
                     </div>
-                    <p>春秋战国和氏璧1</p>
+                    <p>春秋战国和氏璧</p>
                     <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
                 </li>
                 <li>
                     <div class="img-wrap">
                         <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
                     </div>
-                    <p>春秋战国和氏璧1</p>
+                    <p>春秋战国和氏璧</p>
                     <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
                 </li>
             </ul>
-            <ul class="clearfix">
+            <ul class="clearfix hide">
                 <li>
                     <div class="img-wrap">
                         <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
                     </div>
                     <p>春秋战国和氏璧2</p>
                     <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
                 </li>
                 <li>
                     <div class="img-wrap">
@@ -102,6 +282,9 @@
                     </div>
                     <p>春秋战国和氏璧2</p>
                     <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
                 </li>
                 <li>
                     <div class="img-wrap">
@@ -109,6 +292,41 @@
                     </div>
                     <p>春秋战国和氏璧2</p>
                     <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
+                </li>
+            </ul>
+            <ul class="clearfix hide">
+                <li>
+                    <div class="img-wrap">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                    </div>
+                    <p>春秋战国和氏璧3</p>
+                    <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-wrap">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                    </div>
+                    <p>春秋战国和氏璧3</p>
+                    <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-wrap">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                    </div>
+                    <p>春秋战国和氏璧3</p>
+                    <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
                 </li>
             </ul>
         </div>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .fl {
+        float: left;
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    .clearfix {
+        *zoom: 1;
+    }
+    
+    .tab-con {
+        width: 600px;
+        border: 1px solid #ccc;
+    }
+    
+    .tab-con ul li {
+        width: 31.6%;
+        padding: 0 10px 10px 0;
+        margin: 10px 5px 10px 5px;
+        border: 1px solid #ccc;
+        position: relative;
+        float: left;
+    }
+    
+    .tab-con ul li:hover .hide-bg {
+        display: block;
+    }
+    
+    .img-wrap {
+        width: 150px;
+        height: 150px;
+        text-align: center;
+    }
+    
+    .tab-con ul li>span {
+        color: red;
+    }
+    
+    .hide-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .4);
+        display: none;
+    }
+    
+    .hide-bg button {
+        width: 98px;
+        height: 30px;
+        background: #fff;
+        border: 1px solid red;
+        color: red;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+    }
+    
+    .add {
+        width: 98px;
+        height: 30px;
+        background: #fff;
+        border: 1px solid red;
+        color: red;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+    
+    .hide {
+        display: none;
+    }
+</style>
+<script>
+$(function(){
+    var str='<li><div class="img-wrap">'+
+    '<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">'+
+    '</div><p>春秋战国和氏璧</p><span>¥999</span><div class="hide-bg"><button>立即抢购</button></div></li>';
+    var html="";
+    $(".add").on("click",function(){
+        for(var i=0;i<3;i++){
+            html+=str;
+        }
+        $(".tab-con ul").append(html);
+        html="";
+    })
+    
+})
+</script>
+
+<body>
+    <div class="tab">
+        <div class="tab-con">
+            <ul class="clearfix">
+                <li>
+                    <div class="img-wrap">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                    </div>
+                    <p>春秋战国和氏璧</p>
+                    <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-wrap">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                    </div>
+                    <p>春秋战国和氏璧</p>
+                    <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-wrap">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                    </div>
+                    <p>春秋战国和氏璧</p>
+                    <span>¥999</span>
+                    <div class="hide-bg">
+                        <button>立即抢购</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <button class="add">添加</button>
+    </div>
+</body>
+
+</html>
