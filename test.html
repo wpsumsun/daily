@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <sctipt src="jquery-2.1.1.min.js"></sctipt>
+    <script>
+        $(function(){
+            var  $node=$(".node");
+            $node.each(function (i) {
+                $node[i].html() += $node[i].html()
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="node">1</div>
+    <div class="node">2</div>
+    <div class="node">3</div>
+    
+</body>
+
+</html>
