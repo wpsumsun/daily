@@ -15,6 +15,7 @@ app.get('/hello', function(req, res) {
 	});
 });
 
+
 /**
  * 发送 GET 请求, 有参数
  * GET /user/100
@@ -35,7 +36,16 @@ app.get('/user/:uid', function(req, res) {
  * POST /comment
  * query = { comment: "这是评论内容" }
  */
-
+app.post('/comment', function(req, res) {
+	console.log(req.body.comment); // "这是评论内容"
+	res.send({
+		status: 0,
+		data: {
+			cid: 100,
+			comment: "这是评论内容"
+		}
+	});
+});
 
 
 
@@ -49,34 +59,3 @@ app.get('/user', function(req, res) {
 		username: '饥人谷'
 	});
 });
-app.get('/login', function(req, res) {
-	var username=req.query.username;
-	var password=req.query.password;
-	var datas;
-	if(username==="xiaomin2g"&&password==="abcd1234"){
-		datas="登陆成功";
-	}else{
-		datas="用户名或密码错误";
-	}
-	res.send(datas);
-});
-
-app.get('/loadmore',function(req,res){
-	var newsIndex=req.query.index;
-	var len=req.query.length;
-	var data=[];
-	for(var i=0;i<len;i++){
-		data.push('新闻'+ (parseInt(newsIndex)+i) );
-	}
-	res.send(data);
-})
-
-app.get('/loadmore',function(req,res){
-	var newsIndex=req.query.index;
-	var len=req.query.length;
-	var data=[];
-	for(var i=0;i<len;i++){
-		data.push('新闻'+ (parseInt(newsIndex)+i) );
-	}
-	res.send(data);
-})

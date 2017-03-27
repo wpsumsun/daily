@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    .load-more {
+        display: inline-block;
+        padding: 5px 20px;
+        background: #3999d5;
+        color: #fff;
+        margin: 10px auto;
+        text-decoration: none;
+    }
+    
+    .news-wrap li {
+        height: 30px;
+        line-height: 30px;
+        text-align: left;
+        padding-left: 20px;
+        border: 1px solid #666;
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <ul class="news-wrap"></ul>
+    <a href="javascript:;" class="load-more">加载更多</a>
+    <script>
+        $(".load-more").on("click",function(){
+            $.get("loadmore",{index:0,length:5}).done(function(ret){
+
+            }).fail(function(){
+                console.log("出错了");
+            })
+        })
+    </script>
+</body>
+</html>
