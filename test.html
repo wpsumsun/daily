@@ -6,22 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <sctipt src="jquery-2.1.1.min.js"></sctipt>
-    <script>
-        $(function(){
-            var  $node=$(".node");
-            $node.each(function (i) {
-                $node[i].html() += $node[i].html()
-            })
-        })
-    </script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        .btn{background: #ccc;}
+        .scroll-top{position: fixed;top:20px;left: 10px;}
+        .change{width: 50px;height: 50px;border: 1px solid #333;margin-top: 50px;}
+        .inp{width: 160px;height: 28px;border: 1px solid #ccc;outline:none;margin-top: 10px;}
+    </style>
 </head>
 
-<body>
-    <div class="node">1</div>
-    <div class="node">2</div>
-    <div class="node">3</div>
-    
+<body style="height:1600px;">
+    <button class="btn">变色</button>
+    <p class="scroll-top">0</p>
+    <div class="change">123</div>
+    <input type="text" class="inp">
+    <br>
+    <select name="" id="select">
+        <option value="旅游">旅游</option>
+        <option value="运动">运动</option>
+        <option value="游戏">游戏</option>
+    </select>
+    <div class="select-txt">你选择的是：<span></span></div>
+    <script>
+        $(".btn").on("click",function(){
+           $(this).css("background","red");
+           setTimeout(function() {
+               $(".btn").css("background","blue");
+           }, 500);
+        })
+        $(window).on("scroll",function(){
+            var $top=$(window).scrollTop();
+            $(".scroll-top").text($top);
+            console.log($top);
+        })
+        $(".change").hover(function(){
+            $(this).css("background","red");
+        },function(){
+            $(this).css("background","#fff");
+        })
+        $(".inp").focus(function(){
+            $(this).css("border-color","blue");
+        }).keyup(function(){
+            var txt=$(this).val().toUpperCase();
+            $(this).val(txt);
+        }).blur(function(){
+            $(this).css("border-color","#ccc");
+            console.log($(this).val());
+        })
+        $("#select").change(function(){
+            $(".select-txt>span").text($(this).val());
+        })
+    </script>
 </body>
 
 </html>
