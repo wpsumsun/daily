@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        *{margin: 0;padding: 0;}
+        li{list-style: none;}
+        .container{
+            width: 600px;
+            margin: 0 auto;
+        }
+        .container li{
+            float: left;
+            margin: 10px 10px;
+        }
+        .container li img{
+            width: 240px;
+            height: 180px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="container">
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img id="a" src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img id="b" src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg"></a>
+        </li>
+        <li>
+            <a href="#"><img src="http://cdn.uehtml.com/201402/1392662594759_1140x0.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/16.jpg"></a>
+        </li>
+
+    </ul>
+    <script>
+        var loadImg = $(".container li img");
+        $(window).on("scroll", function () {
+            loading(loadImg);
+        });
+        function loading(node){
+            node.each(function(){
+                var _this=$(this);
+                var dataSrc=_this.attr("data-src");
+                if(isVisible(_this)){
+                    _this.attr("src",dataSrc);
+                }
+            })
+        }
+        function isVisible($node) {
+            var nodeHeight = $node.outerHeight(true),
+                nodeTop = $node.offset().top,
+                winScrollTop = $(window).scrollTop(),
+                winHeight = $(window).height();
+            if (winHeight + winScrollTop > nodeTop && winScrollTop < nodeTop + nodeHeight) {
+                $node.addClass("show");
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div-node" style="width: 100px;height: 200px;border: 1px solid #3999d5;">111111111</div>
+    <script>
+        var $div = $(".div-node");
+        $(window).on("scroll", function () {
+            if($div.hasClass("show")){
+                return
+            }else{
+                isVisible($div)
+            }
+        });
+        //wenti 1
+        // function isVisible($node) {
+        //     var nodeHeight = $node.outerHeight(true),
+        //         nodeTop = $node.offset().top,
+        //         winScrollTop = $(window).scrollTop(),
+        //         winHeight = $(window).height();
+        //     if (winHeight + winScrollTop > nodeTop && winScrollTop < nodeTop + nodeHeight) {
+        //         console.log(true);
+        //     } else {
+        //         console.log(false);
+        //     }
+        // }
+
+        //wenti 2
+        // $(window).on("scroll", function () {
+        //     isVisible($div);
+        // });
+        // function isVisible($node) {
+        //     var nodeHeight = $node.outerHeight(true),
+        //         nodeTop = $node.offset().top,
+        //         winScrollTop = $(window).scrollTop(),
+        //         winHeight = $(window).height();
+        //     if (winHeight + winScrollTop > nodeTop && winScrollTop < nodeTop + nodeHeight) {
+        //         console.log(true);
+        //     } else {
+        //         console.log(false);
+        //     }
+        // }
+        //wenti 3
+        $(window).on("scroll", function () {
+            if($div.hasClass("show")){
+                return
+            }else{
+                isVisible($div)
+            }
+        });
+        function isVisible($node) {
+            var nodeHeight = $node.outerHeight(true),
+                nodeTop = $node.offset().top,
+                winScrollTop = $(window).scrollTop(),
+                winHeight = $(window).height();
+            if (winHeight + winScrollTop > nodeTop && winScrollTop < nodeTop + nodeHeight) {
+                $node.addClass("show");
+                console.log(true);
+                return true;
+            } else {
+                console.log(false);
+                return false;
+            }
+        }
+        
+        //wenti 4
+        //懒加载就是先将图片的地址作为属性值存储，当图片开始出现在浏览器窗口中是将地址赋值给src属性开始加载图片
+        
+        //wenti 5
+    </script>
+</body>
+</html>
