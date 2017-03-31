@@ -4,9 +4,12 @@ app.get('/loadmore',function(req,res){
 	var len=req.query.length;
 	var data=[];
 	for(var i=0;i<len;i++){
-		data.push('新闻'+ (parseInt(newsIndex)+i) );
+		if(i<10){
+			data.push('新闻'+ (parseInt(newsIndex)+i) );
+		}else{
+			data.push('没有更多新闻');
+			break
+		}
 	}
-	setTimeout(function() {
-		res.send(data);
-	},2000 );
+	res.send(data);
 })
