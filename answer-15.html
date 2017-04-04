@@ -31,20 +31,20 @@
         // }
 
         //wenti 2
-        // $(window).on("scroll", function () {
-        //     isVisible($div);
-        // });
-        // function isVisible($node) {
-        //     var nodeHeight = $node.outerHeight(true),
-        //         nodeTop = $node.offset().top,
-        //         winScrollTop = $(window).scrollTop(),
-        //         winHeight = $(window).height();
-        //     if (winHeight + winScrollTop > nodeTop && winScrollTop < nodeTop + nodeHeight) {
-        //         console.log(true);
-        //     } else {
-        //         console.log(false);
-        //     }
-        // }
+        $(window).on("scroll", function () {
+            isVisible($div);
+        });
+        function isVisible($node) {
+            var nodeHeight = $node.outerHeight(true),
+                nodeTop = $node.offset().top,
+                winScrollTop = $(window).scrollTop(),
+                winHeight = $(window).height();
+            if (winHeight + winScrollTop > nodeTop && winScrollTop < nodeTop + nodeHeight) {
+                console.log(true);
+            } else {
+                console.log(false);
+            }
+        }
         //wenti 3
         $(window).on("scroll", function () {
             if($div.hasClass("show")){

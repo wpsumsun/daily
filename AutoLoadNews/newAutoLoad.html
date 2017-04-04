@@ -59,21 +59,81 @@
             color: #ccc;
         }
 
-        .load-more {
+        /*.load-more {
             visibility: hidden;
             margin: 3px;
             height: 3px;
-        }
+        }*/
     </style>
 </head>
 
 <body>
     <div class="container">
-        <ul class="news">
-
-        </ul>
+        <ul class="news"></ul>
         <p class="load-more">加载更多</p>
     </div>
+    <script>
+        var isOver=false;
+        var pageIndex=0;
+        var isNewsArrive=true;
+        $(".load-more").on("click",function(){
+            if(!!isNewsArrive){
+                 $.ajax({
+                    url:'/getNews',
+                    method:'get',
+                    dataType:'json',
+                    data:{
+                        index:pageIndex,
+                        length:5
+                    },
+                    success:onSuccess,
+                    error:onError
+                })
+                isNewsArrive=false;
+            }
+           
+        })
+        function onSuccess(ret){
+            isNewsArrive=true;
+            if(ret.status===0){
+                pageIndex++;
+                appendHtml(ret.data);
+            }else{
+                console.log("服务器出错");
+            }
+        }
+        function onError(){
+            console.log("系统出错了");
+        }
+        function appendHtml(data){
+            if(data.length===0){
+                isOver=true;
+                $(".contain").append("<p>已经加载完毕</p>");
+            }else{
+                var html="";
+                $.each(data,function(){
+                    html+="<li class='item'>";
+                    html+="<a href='"+this.link+"'>";
+                    html+="<div class='thumb'><img src='"+this.img+"'></div>";
+                    html+="<h2>"+this.title+"</h2>";
+                    html+="<p>"+this.brif+"</p></a></li>";
+                })
+                $(".news").append(html);
+            }
+        }
+        function isVisible($node) {
+            var nodeHeight = $node.outerHeight(true),
+                nodeTop = $node.offset().top,
+                winScrollTop = $(window).scrollTop(),
+                winHeight = $(window).height();
+            if (winHeight + winScrollTop > nodeTop && winScrollTop < nodeTop + nodeHeight) {
+                $node.addClass("show");
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
 </body>
 
 </html>
