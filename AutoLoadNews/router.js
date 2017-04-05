@@ -111,11 +111,8 @@ app.get('/getNews', function(req, res) {
 
 	var retNews = 	news.slice(pageIndex*len, pageIndex*len+len); //0, 3;  3, 6
 
-
-	setTimeout(function() {
 		res.send({
 		status: 0,
 		data: retNews
 	});
-	}, 2000);
 });
