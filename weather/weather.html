@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        *{padding: 0;margin:0;}
+        a{text-decoration: none;}
+        .contain{
+            width:1000px;
+            margin: 50px auto;
+        }
+        .contain a{
+            padding: 4px 20px;
+            background: #3999d5;
+            color: #fff;
+        }
+        .wrap{
+            margin: 10px 0 10px 0;
+        }
+        .wrap>span{
+            display: inline-block;
+            width: 7em;
+            text-align: right;
+        }
+        .wrap>p{
+            display: inline-block;
+            margin-left: 15px;
+        }
+        .weather-wrap>span{
+            display: inline-block;
+            margin-right: 15px;
+        }
+        .weekday{
+            width: 225px;
+        }
+        .weather-wrap img{
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .weather-wrap{
+            margin-bottom: 20px;
+        }
+        .weather{
+            display: inline-block;
+        }
+        .wea{
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <a href="javascript:;" class="search">查询本地天气</a>
+        <div class="wrap">
+            <span>所在城市:</span>
+            <p class="city"></p>
+        </div>
+        <div class="wrap">
+            <span>今日日期:</span>
+            <p class="date"></p>
+        </div>
+        <div class="wrap">
+            <span>pm25:</span>
+            <p class="pm"></p>
+        </div>
+        <div class="wrap">
+            <span  class="wea">近日天气状况:</span>
+            <div class="weather"></div>
+        </div>
+    </div>
+    <script>
+        var isArrive=true;
+        $(".search").on("click",function(){
+            $.ajax({
+                url:"http://api.jirengu.com/weather.php",
+                method:"get",
+                dataType:"json",
+                success:onSuccess,
+                error:onError
+            })
+        })
+        function onSuccess(ret){
+            isArrive=true;
+            if($(".weather").children("div").length<1){
+                if(ret.status==="success"){
+                    $(".city").text(ret.results[0].currentCity);
+                    $(".date").text(ret.date);
+                    $(".pm").text(ret.results[0].pm25);
+                    $.each(ret.results[0].weather_data,function(){
+                        var html="";
+                        html+="<div class='weather-wrap'>";
+                        html+="<span class='weekday'>"+this.date+"</span>";
+                        html+="<span>白天:</span><img src='"+this.dayPictureUrl+"'>";
+                        html+="<span>晚间:</span><img src='"+this.nightPictureUrl+"'>";
+                        html+="<span>天气:"+this.weather+"</span>";
+                        html+="<span>风向:"+this.wind+"</span>";
+                        html+="<span>温度:"+this.temperature+"</span>";
+                        $(".weather").append(html);
+                    })
+                }else{
+                    $(".contain").append("<p>后台出错了</p>");
+                }
+            }   
+        }
+        function onError(){
+            console.log("出错了");
+        }
+    </script>
+</body>
+</html>
