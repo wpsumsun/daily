@@ -1,6 +1,7 @@
-[dialog](http://jsbin.com/deqezi/edit?css,js,output)
+﻿[dialog](http://jsbin.com/deqezi/edit?css,js,output)
 [newsautoload](https://github.com/zev91/lazyload/blob/master/news.html)
 [suggestion](http://js.jirengu.com/hicic/5/edit?html,js,output)
 [server](http://jscode.me/t/server/710)
 [异步](http://www.jirengu.com/app/watch/1425/1?vsum=148)
 [task](http://jirengu11.mikecrm.com/gV6Pxkg)
+[suggestion 完善](http://js.jirengu.com/vebuz/1/edit?html,output )
