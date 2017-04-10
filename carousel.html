@@ -38,6 +38,7 @@
         .img-wrap {
             width: 1440px;
             height: 240px;
+            position: relative;
         }
         
         .img-wrap li {
@@ -127,19 +128,41 @@
     <script>
         var imgLength=$(".img-wrap li").length;
         var imgWidth=$(".img-wrap li").first().width();
-        console.log(imgLength,imgWidth)
         var fistImg=$(".img-wrap li").first().clone();
         var lastImg=$(".img-wrap li").last().clone();
-        $(".img-wrap").append(fistImg);
-        $(".img-wrap").prepend(lastImg);
+        var curPage=0;
+        var imgWrap=$(".img-wrap")
+        imgWrap.append(fistImg);
+        imgWrap.prepend(lastImg);
+        imgWrap.css("width",imgWidth*imgWrap.children().length)
+        imgWrap.css("left",-imgWidth);
         $(".prev-btn").on("click",function(){
             playPrev();
         })
         $(".next-btn").on("click",function(){
             playNext();
         })
-        playPrev(){
-                
+        function playPrev(){
+           imgWrap.animate({
+                left:"+=360"
+            },function(){
+                curPage--;
+                if(curPage<0){
+                    imgWrap.css("left",-imgWidth*imgWrap.children.length);
+                    curPage=imgLength;
+                }
+            })
+        }
+        function playNext(){
+           imgWrap.animate({
+                left:"-=360"
+            },function(){
+                curPage++;
+                if(curPage===imgLength){
+                    imgWrap.css("left",-360);
+                    curPage=0;
+                }
+            })
         }
     </script>
 </div>
