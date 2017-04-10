@@ -124,6 +124,24 @@
             <li></li>
         </ul>
     </div>
+    <script>
+        var imgLength=$(".img-wrap li").length;
+        var imgWidth=$(".img-wrap li").first().width();
+        console.log(imgLength,imgWidth)
+        var fistImg=$(".img-wrap li").first().clone();
+        var lastImg=$(".img-wrap li").last().clone();
+        $(".img-wrap").append(fistImg);
+        $(".img-wrap").prepend(lastImg);
+        $(".prev-btn").on("click",function(){
+            playPrev();
+        })
+        $(".next-btn").on("click",function(){
+            playNext();
+        })
+        playPrev(){
+                
+        }
+    </script>
 </div>
 
 </html>
