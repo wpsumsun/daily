@@ -42,7 +42,8 @@
         }
         
         .img-wrap li {
-            float: left;
+            position: absolute;
+            display: none;
             width: 360px;
             height: 240px;
         }
@@ -81,7 +82,6 @@
             right: 0;
             text-align: center;
         }
-        
         .bullet {
             display: inline-block;
         }
@@ -131,89 +131,16 @@
         </ul>
     </div>
     <script>
-        var imgLength = $(".img-wrap li").length;
-        var imgWidth = $(".img-wrap li").first().width();
-        var fistImg = $(".img-wrap li").first().clone();
-        var lastImg = $(".img-wrap li").last().clone();
-        var bulletLi=$(".bullet").children();
-        var isAnimate = false;
-        var curPage = 0;
-        var imgWrap = $(".img-wrap")
-        imgWrap.append(fistImg);
-        imgWrap.prepend(lastImg);
-        imgWrap.css("width", imgWidth * imgWrap.children().length)
-        imgWrap.css("left", -imgWidth);
+        var imgWrap=$(".img-wrap");
+        imgWrap.children().eq(0).fadeIn();
+        $(".prev-btn").on("click",function(){
+            playPrev();
+        })
+        $(".next-btn").on("click",function(){
+            playNext();
+        })
+        playPrev(){
 
-        autoPlay();
-        $(".carousel").hover(function(){
-            stopAutoPlay();
-        },function(){
-            autoPlay();
-        })
-        $(".prev-btn").on("click", function () {
-            playPrev(1);
-        })
-        $(".next-btn").on("click", function () {
-            playNext(1);
-        })
-        bulletLi.on("click",function(){
-            var bulletLiIndex=$(this).index();
-            var num=bulletLiIndex-curPage;
-            console.log(bulletLiIndex+","+num);
-            if(num>0){
-                playNext(num);
-            }else{
-                playPrev(-num);
-            }
-        })
-        function autoPlay(){
-            clock=setInterval(function(){
-                playNext(1)
-            },1500)
-        }
-        function stopAutoPlay(){
-            clearInterval(clock)
-        }
-        function playPrev(n) {
-            if (isAnimate) {
-                return;
-            } else {
-                isAnimate = true;
-                imgWrap.animate({
-                    left: "+="+imgWidth*n
-                }, function () {
-                    curPage-=n;
-                    if (curPage < 0) {
-                        imgWrap.css("left", -imgWidth * imgLength);
-                        curPage = imgLength - 1;
-                    }
-                    setBullet();
-                    isAnimate = false;
-                })
-
-            }
-
-        }
-        function playNext(n) {
-            if (isAnimate) {
-                return
-            } else {
-                isAnimate = true;
-                imgWrap.animate({
-                    left: "-="+imgWidth*n
-                }, function () {
-                    curPage+=n;
-                    if (curPage === imgLength) {
-                        imgWrap.css("left", -imgWidth);
-                        curPage = 0;
-                    }
-                    setBullet();
-                    isAnimate = false;
-                })
-            }
-        }
-        function setBullet(){
-            bulletLi.eq(curPage).addClass("active").siblings().removeClass("active");
         }
     </script>
 </div>
