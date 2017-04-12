@@ -12,29 +12,21 @@
             margin: 0;
             padding: 0;
         }
-
-
-
+        
         .clearfix {
             display: block;
             content: "";
             clear: both;
         }
-
-        a{
-            text-decoration: none;
-        }
-
+        
         ul {
             list-style: none;
         }
-
-        {
+        
+        a {
             text-decoration: none;
         }
-
-
-
+        
         .carousel {
             width: 360px;
             height: 240px;
@@ -42,33 +34,25 @@
             margin: 100px auto;
             position: relative;
         }
-
-
-
+        
         .img-wrap {
             width: 1440px;
             height: 240px;
             position: relative;
         }
-
-
-
+        
         .img-wrap li {
             position: absolute;
             display: none;
             width: 360px;
             height: 240px;
         }
-
-
-
+        
         .img-wrap li img {
             width: 360px;
             height: 240px;
         }
-
-
-
+        
         .prev-btn,
         .next-btn {
             width: 25px;
@@ -82,21 +66,15 @@
             top: 50%;
             margin-top: -12.5px;
         }
-
-
-
+        
         .prev-btn {
             left: 10px;
         }
-
-
-
+        
         .next-btn {
             right: 10px;
         }
-
-
-
+        
         .bullet-wrap {
             position: absolute;
             bottom: 10px;
@@ -104,14 +82,10 @@
             right: 0;
             text-align: center;
         }
-
-
         .bullet {
             display: inline-block;
         }
-
-
-
+        
         .bullet li {
             float: left;
             width: 20px;
@@ -121,9 +95,7 @@
             border-radius: 3px;
             cursor: pointer;
         }
-
-
-
+        
         .bullet li.active {
             background: #333;
         }
@@ -159,78 +131,16 @@
         </ul>
     </div>
     <script>
-        var imgWrap = $(".img-wrap");
-        var imgLength = imgWrap.children().length;
-        var bulletLi = $(".bullet").children();
-        var curPage = 0;
-        var isFade = false;
+        var imgWrap=$(".img-wrap");
         imgWrap.children().eq(0).fadeIn();
-
-        autoPlay();
-        $(".carousel").hover(function(){
-            stopAutoPlay();
-        },function(){
-            autoPlay();
+        $(".prev-btn").on("click",function(){
+            playPrev();
         })
-        $(".prev-btn").on("click", function () {
-            playPrev(1);
+        $(".next-btn").on("click",function(){
+            playNext();
         })
-        $(".next-btn").on("click", function () {
-            playNext(1);
-        })
-        bulletLi.on("click",function(){
-            var bulletLiIndex=$(this).index();
-            var num=bulletLiIndex-curPage;
-            if(num>0){
-                playNext(num);
-            }else{
-                playPrev(-num);
-            }
-        })
-        function autoPlay(){
-            clock=setInterval(function(){
-                playNext(1)
-            },1500)
-        }
-        function stopAutoPlay(){
-            clearInterval(clock);
-        }
-        function playPrev(n) {
-            if (isFade) {
-                return
-            } else {
-                isFade = true;
-                imgWrap.children().eq(curPage).fadeOut();
-                curPage-=n;
-                if (curPage < 0) {
-                    imgWrap.children().eq(imgLength - 1).fadeIn();
-                    curPage = imgLength - 1;
-                } else {
-                    imgWrap.children().eq(curPage).fadeIn();
-                }
-                setBullet();
-                isFade = false;
-            }
-        }
-        function playNext(n) {
-            if (isFade) {
-                return
-            } else {
-                isFade = true;
-                imgWrap.children().eq(curPage).fadeOut();
-                curPage+=n;
-                if (curPage === imgLength) {
-                    imgWrap.children().eq(0).fadeIn();
-                    curPage = 0;
-                } else {
-                    imgWrap.children().eq(curPage).fadeIn();
-                }
-                setBullet();
-                isFade = false;
-            }
-        }
-        function setBullet() {
-            bulletLi.eq(curPage).addClass("active").siblings().removeClass("active");
+        playPrev(){
+            
         }
     </script>
 </div>
