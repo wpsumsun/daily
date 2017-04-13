@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        .contain {
+            width: 100%;
+            position: relative;
+        }
+
+
+
+        .item {
+            width: 150px;
+            margin: 0 10px 10px 0;
+            transition: all 1s;
+            position: absolute;
+        }
+
+
+
+        .h1 {
+            height: 80px;
+            background: #dd09f0;
+        }
+
+
+
+        .h2 {
+            height: 120px;
+            background: #37b9f0;
+        }
+
+
+
+        .h3 {
+            height: 160px;
+            background: #37f074;
+        }
+
+
+
+        .h4 {
+            height: 200px;
+            background: #f07737;
+        }
+
+
+
+        .h5 {
+            height: 240px;
+            background: #f0376e;
+        }
+
+
+
+        .h6 {
+            height: 280px;
+            background: #3e56e8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <div class="item h1">1</div>
+        <div class="item h3">2</div>
+        <div class="item h5">3</div>
+        <div class="item h4">4</div>
+        <div class="item h6">5</div>
+        <div class="item h2">6</div>
+        <div class="item h6">7</div>
+        <div class="item h4">8</div>
+        <div class="item h3">9</div>
+        <div class="item h5">10</div>
+        <div class="item h1">11</div>
+        <div class="item h2">12</div>
+        <div class="item h6">13</div>
+        <div class="item h3">14</div>
+        <div class="item h1">15</div>
+        <div class="item h4">16</div>
+        <div class="item h3">17</div>
+        <div class="item h1">18</div>
+        <div class="item h6">19</div>
+        <div class="item h4">20</div>
+    </div>
+    <script>
+        waterFull();
+        $(window).on("resize", function () {
+            waterFull();
+        })
+        
+        function waterFull() {
+            var itemWidth = $(".item").outerWidth(true);
+            var colLength = parseInt($(".contain").width() / itemWidth);
+            var heightArr = [];
+            for (var i = 0; i < colLength; i++) {
+                heightArr[i] = 0;
+            }
+            $(".item").each(function () {
+                var minVal = Math.min.apply(null, heightArr);
+                var minIndex = heightArr.indexOf(minVal);
+                $(this).css({
+                    "left": itemWidth * minIndex,
+                    "top": heightArr[minIndex]
+                })
+                heightArr[minIndex] += $(this).outerHeight(true);
+            })
+        }
+
+        // var WaterFull = (function () {
+        //     function init() {
+        //         waterFull();
+        //         $(window).on("resize", function () {
+        //             waterFull();
+        //         })
+        //     }
+        //     return {
+        //         init:init
+        //     }
+        // })()
+
+        //  WaterFull.init();
+    </script>
+</body>
+
+</html>
