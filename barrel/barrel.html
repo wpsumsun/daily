@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .img-show{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .img-row:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .img-wrap{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="img-show"></div>
+    <script>
+        function Barrel(imgContent){
+            this.imgContent=imgContent;
+            this.loadImg();
+            this.rowList=[];
+        }
+        Barrel.prototype={
+            loadImg:function(){
+                var _this=this;
+                var imgUrls=this.getImgUrls(100);
+                $.each(imgUrls,function(i,url){
+                    var img=new Image();
+                    img.src=url;
+                    img.onload=function(){
+                        var imgInfo={
+                            target:img,
+                            height:200,
+                            width:200*(img.width/img.height)
+                        };
+                        _this.render(imgInfo);
+                    }
+                })
+            },
+            render:function(imgInfo){
+                var rowList=this.rowList;
+                var clientWidth=this.imgContent.width();
+                var rowWidth=0;
+                var newRowHeight=0;
+                var lastImgInfo=imgInfo;
+                this.rowList.push(imgInfo);
+                for(var i=0;i<this.rowList.length;i++){
+                    rowWidth+=this.rowList[i].width;
+                    if(rowWidth>clientWidth){
+                        this.rowList.pop(lastImgInfo);
+                        rowWidth=rowWidth=lastImgInfo.width;
+                        newRowHeight=200*clientWidth/rowWidth;
+                        this.layout(newRowHeight);
+                        this.rowList=[];
+                        this.rowList.push(lastImgInfo);
+                    }
+                }
+            },
+            layout:function(newRowHeight){
+                var imgRow=$("<div class='img-row'></div>");
+                $.each(this.rowList,function(i,imgInfo){
+                    var imgWrap=$("<div class='img-wrap'></div>");
+                    $img=$(imgInfo.target);
+                    $img.height(newRowHeight);
+                    imgWrap.append($img);
+                    imgRow.append(imgWrap);
+                })
+                this.imgContent.append(imgRow);
+            },
+            getImgUrls:function(num){
+                var imgWidth,imgHeight,urls=[];
+                for(var i=0;i<num;i++){
+                    imgWidth=parseInt(Math.random()*300+30);
+                    imgHeight=parseInt(Math.random()*300+300);
+                    urls.push("https://unsplash.it/"+imgWidth+"/"+imgHeight+"/?random");
+                }
+                return urls;
+            }
+        }
+        var barrel=new Barrel($(".img-show"));
+    </script>
+</body>
+</html>
