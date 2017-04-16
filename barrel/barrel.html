@@ -23,11 +23,20 @@
         .img-wrap{
             float: left;
         }
+        .load-more {
+            visibility: hidden;
+            margin: 3px;
+            height: 3px;
+        }
     </style>
 </head>
 <body>
-    <div class="img-show"></div>
+    <div class="img-show">
+    </div>
+    <p class="load-more">加載更多</p>
     <script>
+        
+        
         function Barrel(imgContent){
             this.imgContent=imgContent;
             this.loadImg();
@@ -36,7 +45,7 @@
         Barrel.prototype={
             loadImg:function(){
                 var _this=this;
-                var imgUrls=this.getImgUrls(100);
+                var imgUrls=this.getImgUrls(25);
                 $.each(imgUrls,function(i,url){
                     var img=new Image();
                     img.src=url;
@@ -61,7 +70,7 @@
                     rowWidth+=this.rowList[i].width;
                     if(rowWidth>clientWidth){
                         this.rowList.pop(lastImgInfo);
-                        rowWidth=rowWidth=lastImgInfo.width;
+                        rowWidth=rowWidth-lastImgInfo.width;
                         newRowHeight=200*clientWidth/rowWidth;
                         this.layout(newRowHeight);
                         this.rowList=[];
@@ -83,14 +92,35 @@
             getImgUrls:function(num){
                 var imgWidth,imgHeight,urls=[];
                 for(var i=0;i<num;i++){
-                    imgWidth=parseInt(Math.random()*300+30);
-                    imgHeight=parseInt(Math.random()*300+300);
-                    urls.push("https://unsplash.it/"+imgWidth+"/"+imgHeight+"/?random");
+                    imgWidth=parseInt(Math.random()*300+100);
+                    urls.push("https://unsplash.it/"+imgWidth+"/"+200+"/?random");
                 }
                 return urls;
             }
         }
         var barrel=new Barrel($(".img-show"));
+        $(window).on("scroll",checkNews);
+        
+        function checkNews(){
+            if(isVisible($(".load-more"))){
+                loadnews();
+            }
+        }
+        function loadnews(){
+            barrel.loadImg();
+        }
+
+        function isVisible($node) {
+            var nodeHeight = $node.outerHeight(true),
+                nodeTop = $node.offset().top,
+                winScrollTop = $(window).scrollTop(),
+                winHeight = $(window).height();
+            if (winHeight + winScrollTop > nodeTop && winScrollTop < nodeTop + nodeHeight) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     </script>
 </body>
 </html>
