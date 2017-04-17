@@ -11,65 +11,181 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+        
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: snow;
+        }
+        
         .contain {
-            width: 900px;
+            
             margin: 0 auto;
         }
+        
         .item {
             width: 150px;
             margin: 0 10px 10px 0;
             transition: all 1s;
             position: absolute;
         }
+        
+        .clearfix {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        
+        .item {
+            position: absolute;
+            padding: 0 0 10px 0;
+            width: 280px;
+            margin: 10px;
+            border: 1px solid #DFDFDF;
+            background: #FFF;
+            transition: all .8s;
+        }
+        
+        .item img {
+            width: 260px;
+            margin: 10px;
+        }
+        
+        .item .news-title {
+            height: 25px;
+            margin: 0 12px;
+            border-bottom: 1px solid #DBDBDB;
+        }
+        
+        .item .news-detail {
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 10px 15px 0;
+            color: #777371;
+        }
+        .news-wrap{
+            position: relative;
+        }
+        
+        #load {
+            visibility: hidden;
+            height: 20px;
+        }
     </style>
 </head>
 
 <body>
     <div class="contain">
-        <div class="item h1">1</div>
-        <div class="item h3">2</div>
-        <div class="item h5">3</div>
-        <div class="item h4">4</div>
-        <div class="item h6">5</div>
-        <div class="item h2">6</div>
-        <div class="item h6">7</div>
-        <div class="item h4">8</div>
-        <div class="item h3">9</div>
-        <div class="item h5">10</div>
-        <div class="item h1">11</div>
-        <div class="item h2">12</div>
-        <div class="item h6">13</div>
-        <div class="item h3">14</div>
-        <div class="item h1">15</div>
-        <div class="item h4">16</div>
-        <div class="item h3">17</div>
-        <div class="item h1">18</div>
-        <div class="item h6">19</div>
-        <div class="item h4">20</div>
+        <ul class="news-wrap clearfix">
+            <!--<li class="item">
+                <a href="javascript:;">
+                    <img src="http://n.sinaimg.cn/tech/transform/20170417/OTXA-fyeimqc4282144.jpg" alt="">
+                </a>
+                <h4 class="news-title">智能缝纫机200年后卷土重来</h4>
+                <p class="news-detail">　1790年，英国人托马斯·山特（Thomas Saint）发明了世界上第一台缝纫机，可进入了21世纪，用缝纫机的人越来越少了，只有在裁缝店才能看到老式缝纫机的</p>
+            </li>-->
+        </ul>
+        <div id="load">我是看不见的</div>
     </div>
     <script>
-        waterFull();
-        $(window).on("resize", function () {
-            waterFull();
-        })
-        
-        function waterFull() {
-            var itemWidth = $(".item").outerWidth(true);
-            var colLength = parseInt($(".contain").width() / itemWidth);
-            var heightArr = [];
-            for (var i = 0; i < colLength; i++) {
-                heightArr[i] = 0;
+        // waterFull();
+        // $(window).on("resize", function () {
+        //     waterFull();
+        // })
+        var curPage = 1;
+        var perPageCount = 15;
+        var heightArr=[];
+        var isDataArrive=true;
+
+        getNews();
+        $(window).on("scroll",function(){
+            if(isVisible($("#load"))&&isDataArrive){
+                isDataArrive=false;
+                getNews();
             }
-            $(".item").each(function () {
-                var minVal = Math.min.apply(null, heightArr);
-                var minIndex = heightArr.indexOf(minVal);
-                $(this).css({
-                    "left": itemWidth * minIndex,
-                    "top": heightArr[minIndex]
-                })
-                heightArr[minIndex] += $(this).outerHeight(true);
+        })
+        $(window).on("resize",function(){
+            heightArr=[];
+            waterFull($(".item"))
+        })
+        function getNews() {
+            $.ajax({
+                url: 'http://platform.sina.com.cn/slide/album_tech',
+                type: 'get',
+                dataType: 'jsonp',
+                jsonp: 'jsoncallback',
+                data: {
+                    app_key: 1271687855,
+                    num: perPageCount,
+                    page: curPage
+                },
+                success: function (ret) {
+                    if (ret.status.code === "0") {
+                        var dataArr=ret.data;
+                        var $nodes=render(dataArr);
+                        waterFull($nodes);
+                        curPage++;
+                        isDataArrive=true;
+                    }
+                },
+                error: function () {
+                    console.log("出错了");
+                }
+
+
             })
+        }
+        function render(data) {
+            var html = "";
+            var $nodes;
+            for (var i = 0; i < data.length; i++) {
+                html += "<li class='item'><a href=" + data[i].url + ">";
+                html += "<img src=" + data[i].img_url + "></a>";
+                html += "<h4 class='news-title'>" + data[i].short_name + "</h4>";
+                html += "<p class='news-detail'>" + data[i].short_intro + "</p></li>";
+            }
+            var $nodes=$(html)
+            $(".news-wrap").append($nodes);
+            return $nodes;
+        }
+        function waterFull(node) {
+            var itemWidth = node.outerWidth(true);
+            var colLength = parseInt($(".contain").width() / itemWidth);
+            if (heightArr.length === 0) {
+                for (var i = 0; i < colLength; i++) {
+                    heightArr[i] = 0;
+                }
+            }
+            $.each(node,function(i){
+                node.eq(i).find("img").on("load",function(){
+                    var minVal = Math.min.apply(null, heightArr);
+                    var minIndex = heightArr.indexOf(minVal);
+                    node.eq(i).css({
+                        "left": itemWidth * minIndex,
+                        "top": heightArr[minIndex]
+                    })
+                    heightArr[minIndex] += node.eq(i).outerHeight(true);
+                    var maxVal = Math.max.apply(null, heightArr);
+                    $(".news-wrap").height(maxVal);
+                })
+                
+            })
+    
+        }
+        function isVisible($node) {
+            var nodeHeight = $node.outerHeight(true),
+                nodeTop = $node.offset().top,
+                winScrollTop = $(window).scrollTop(),
+                winHeight = $(window).height();
+            if (winHeight + winScrollTop > nodeTop && winScrollTop < nodeTop + nodeHeight) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         // var WaterFull = (function () {
