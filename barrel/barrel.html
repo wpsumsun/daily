@@ -23,20 +23,29 @@
         .img-wrap{
             float: left;
         }
+        .load-more {
+            visibility: hidden;
+            margin: 3px;
+            height: 3px;
+        }
     </style>
 </head>
 <body>
-    <div class="img-show"></div>
+    <div class="img-show">
+    </div>
+    <p class="load-more">加載更多</p>
     <script>
+        
+        var isDataArrive=true;
         function Barrel(imgContent){
             this.imgContent=imgContent;
-            this.loadImg();
+            this.loadImg(20);
             this.rowList=[];
         }
         Barrel.prototype={
-            loadImg:function(){
+            loadImg:function(num){
                 var _this=this;
-                var imgUrls=this.getImgUrls(100);
+                var imgUrls=this.getImgUrls(num);
                 $.each(imgUrls,function(i,url){
                     var img=new Image();
                     img.src=url;
@@ -58,10 +67,10 @@
                 var lastImgInfo=imgInfo;
                 this.rowList.push(imgInfo);
                 for(var i=0;i<this.rowList.length;i++){
-                    rowWidth+=this.rowList[i].width;
+                    rowWidth+=rowList[i].width;
                     if(rowWidth>clientWidth){
                         this.rowList.pop(lastImgInfo);
-                        rowWidth=rowWidth=lastImgInfo.width;
+                        rowWidth=rowWidth-lastImgInfo.width;
                         newRowHeight=200*clientWidth/rowWidth;
                         this.layout(newRowHeight);
                         this.rowList=[];
@@ -79,18 +88,38 @@
                     imgRow.append(imgWrap);
                 })
                 this.imgContent.append(imgRow);
+                isDataArrive=true;
             },
             getImgUrls:function(num){
                 var imgWidth,imgHeight,urls=[];
                 for(var i=0;i<num;i++){
-                    imgWidth=parseInt(Math.random()*100+50);
-                    imgHeight=parseInt(Math.random()*30+50);
+                    imgWidth=parseInt(Math.random()*400+50);
+                    var imgHeight=200;
                     urls.push("https://unsplash.it/"+imgWidth+"/"+imgHeight+"/?random");
                 }
                 return urls;
             }
         }
         var barrel=new Barrel($(".img-show"));
+        $(window).on("scroll",checkNews);
+        
+        function checkNews(){
+            if(isVisible($(".load-more"))&&isDataArrive){
+                isDataArrive=false;
+                 barrel.loadImg(6);
+            }
+        }
+        function isVisible($node) {
+            var nodeHeight = $node.outerHeight(true),
+                nodeTop = $node.offset().top,
+                winScrollTop = $(window).scrollTop(),
+                winHeight = $(window).height();
+            if (winHeight + winScrollTop > nodeTop && winScrollTop < nodeTop + nodeHeight) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     </script>
 </body>
 </html>
