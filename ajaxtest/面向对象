@@ -1,0 +1,24 @@
+###类、对象、实例化、封装、继承、多态
+1.将一些属性和方法封装为类
+2.类可以继承类（父类和子类）
+3.将类实例化就有了对象
+4.对象又有类的属性和方法、父类的属性和方法、父类的父类···
+5.多态：不同对象的同一个方法吗，可以有不同的表现
+###var object=new Object()时，发生了什么？
+1.创建一个空对象作为this
+2.this._proto_指向构造函数的prototype
+3.运行构造函数
+4.返回this（如果构造函数没有return）
+###手动指定对象的原型
+1.object._proto_={...}
+ECMASCRIPT6开始
+2.借用new
+```
+var myProto={
+    namr:'foo'
+}
+var Temp=function(){}
+Temnp.prototype=myProto
+obj=new Temp()
+```
+3.使用Object.create(proto)
