@@ -93,15 +93,38 @@ Person.prototype.constructor===Person
 ![](http://upload-images.jianshu.io/upload_images/1974686-7dca486f04506077.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ###问题9：对String做扩展，实现如下方式获取字符串中频率最高的字符
 ```
+String.prototype.getMostOften=function(){
+                                  var count={};
+                                  for(var i=0;i<str.length;i++){
+                                      if(count[str[i]]){
+                                          count[str[i]]++;
+                                      }else{
+                                          count[str[i]]=1;
+                                      }
+                                  }
+                                  var counts=1,
+                                      maxTimes;
+                                  for(var key in count){
+                                      if(count[key]>counts){
+                                          counts=count[key];
+                                          maxTimes=key;
+                                      }
+                                  }
+                                  return maxTimes+":"+counts
+                              }
+        var str = 'ahbbccdeddddfg';
+        var ch = str.getMostOften();
+        console.log(ch)
 var str = 'ahbbccdeddddfg';
 var ch = str.getMostOften();
 console.log(ch); //d , 因为d 出现了5次
 ```
 ###问题10： instanceOf有什么作用？内部逻辑是如何实现的？
-
+instanceof 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上。
+instanceof正是通过探测obj.__proto__.__proto__... === Constructor.prototype来验证obj是否是Constructor的实例
 ##继承相关问题
 ###问题11：继承有什么作用?
-
+继承就是通过构造函数和原型链，让子类拥有父类的的属性和方法，无需重写一次代码，实现代码重用，同时子类可以添加和修改新的属性和方法，不影响父类。
 ###问题12： 下面两种写法有什么区别?
 ```
 //方法1
@@ -125,10 +148,13 @@ Person.prototype.printName = function(){
 }
 var p1 = new Person('若愚', 27);
 ```
+方法1是将方法直接放在其属性中，每次实例化一个对象就会创建一个printName方法，十分损耗内存；第二种p1对象继承后，将printName方法放在原型上，每次实例化对象，只要到原型链中调用即可，节约内存；
 ###问题13： Object.create 有什么作用？兼容性如何？
-
+Object.create() 方法使用指定的原型对象和其属性创建了一个新的对象
+<img src="/uploads/default/original/2X/2/24e1ea74a3c0691bf8bb79d732c7b27433954cfd.jpg" width="690" height="165">
 ###问题14： hasOwnProperty有什么作用？ 如何使用？
-
+判断一个对象是否包含自定义属性而不是原型链上的属性，是JavaScript中唯一一个处理属性但是不查找原型链的函数语法
+obj.hasOwnProperty(prop)
 ###问题15：如下代码中call的作用是什么?
 ```
 function Person(name, sex){
@@ -140,25 +166,28 @@ function Male(name, sex, age){
     this.age = age;
 }
 ```
+//当创建Male的实例时，会执行Person，这样Male就能继承Person的属性
 ###问题16： 补全代码，实现继承 
 ```
 function Person(name, sex){
-    // todo ...
+    this.name=name;
+    this.sex=sex;
 }
 
 Person.prototype.getName = function(){
-    // todo ...
+    console.log("My name is"+this.name)
 };    
 
 function Male(name, sex, age){
-   //todo ...
+   Person.call(this,name,sex);
+   this.age=age;
 }
-
-//todo ...
+var Temp=function(){};
+Temp.prototype=Person.prototype;
+Male.prototype=new Temp();
 Male.prototype.getAge = function(){
-    //todo ...
+   console.log("我今年"+this.age);
 };
-
 var ruoyu = new Male('若愚', '男', 27);
-ruoyu.printName();
+ruoyu.getName();
 ```

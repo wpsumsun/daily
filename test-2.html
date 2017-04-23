@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        String.prototype.getMostOften=function(){
+            var count={};
+            for(var i=0;i<str.length;i++){
+                if(count[str[i]]){
+                    count[strArr[i]]++;
+                }else{
+                    count[strArr[i]]=1;
+                }
+            }
+            var counts=1,
+                maxTimes;
+            for(var key in count){
+                if(count[key]>num){
+                    num=count[key];
+                    maxTimes=key;
+                }
+            }
+            return maxTimes+":"+num
+        }
+        var str = 'ahbbccdeddddfg';
+        var ch = str.getMostOften();
+        console.log(ch)
+    </script>
+</body>
+
+</html>
