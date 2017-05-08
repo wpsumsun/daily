@@ -13,7 +13,7 @@ function func() {
 john.sayHi = func
 john.sayHi() //Join 等同于 sayHi.call(join),this指向join对象
 ```
-###问题3： 下面代码输出什么，为什么
+###问题3： 下面代码输出什么，为什么?
 ```
 func() 
 function func() { 
