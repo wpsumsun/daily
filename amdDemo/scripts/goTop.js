@@ -24,5 +24,5 @@ define(['jquery'], function ($) {
         }
     }
     
-    return goTop;
+    return GoTop;
 })

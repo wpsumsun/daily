@@ -18,28 +18,28 @@
         }
         
         .carousel {
-            width: 360px;
-            height: 240px;
+            width: 720px;
+            height: 480px;
             overflow: hidden;
-            margin: 100px auto;
+            margin: 0 auto;
             position: relative;
         }
         
         .img-wrap {
             width: 1440px;
-            height: 240px;
+            height: 480px;
             position: relative;
         }
         
         .img-wrap li {
             float: left;
-            width: 360px;
-            height: 240px;
+            width: 720px;
+            height: 480px;
         }
         
         .img-wrap li img {
-            width: 360px;
-            height: 240px;
+            width: 720px;
+            height: 480px;
         }
         
         .prev-btn,

@@ -101,5 +101,5 @@ define(['jquery'],function($){
 
         }
 
-        return autoLoad;
+        return AutoLoad;
 })
