@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        .gotop {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            background: #3999d5;
+            color: #fff;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            box-sizing: border-box;
+            padding: 5px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height: 2000px;" class="content">top~</div>
+    <!--<div class="gotop">返回顶部</div>-->
+    <script>
+        function GoTop(ct) {
+            this.ct = ct;
+            this.target = $("<div class='gotop'>返回顶部</div>");
+            this.creatNode();
+            this.bindEvent();
+        }
+        GoTop.prototype = {
+            creatNode: function () {
+                this.ct.append(this.target);
+            },
+            bindEvent: function () {
+                var _this = this;
+                $(window).on("scroll", function () {
+                    if ($(window).scrollTop()< 50) {
+                        _this.target.hide();
+                    } else {
+                        _this.target.show();
+                    }
+                })
+                this.target.on("click", function () {
+                    $("html,body").animate({ scrollTop: 0 }, 400)
+                })
+            }
+        }
+        var backTop = new GoTop($(".content"));
+    </script>
+</body>
+
+</html>
