@@ -7,17 +7,37 @@
 
 提高代码可读性
 代码解耦，提高复用性
+
 ###题目2： CMD、AMD、CommonJS 规范分别指什么？有哪些应用
-定义模块 根据CommonJS规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非定义为global对象的属性
 
-模块输出： 模块只有一个出口，module.exports对象，我们需要把模块希望输出的内容放入该对象
+CommonJs 是服务器端模块的规范，Node.js采用了这个规范。根据CommonJS规范，一个单独的文件就是一个模块。加载模块使用require方法，该方法读取一个文件并执行，最后返回文件内部的exports对象。
+CommonJS 加载模块是同步的，所以只有加载完成才能执行后面的操作。像Node.js主要用于服务器的编程，加载的模块文件一般都已经存在本地硬盘，所以加载起来比较快，不用考虑异步加载的方式，所以CommonJS规范比较适用。
+```
+var xx = require('./url');
+console.log(xx.foo);
+```
+但如果是浏览器环境，要从服务器加载模块，这是就必须采用异步模式。所以就有了 AMD CMD 解决方案。 
+AMD 即Asynchronous Module Definition（异步模块定义），AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。
+```
+define(['dep1', 'dep2'],function(dep1, dep2){
+    //在开始就已经引入了要用的所有模块
+    return {xx: xx};
+})
+```
+CMD 即Common Module Definition（通用模块定义），CMD是SeaJS 在推广过程中对模块定义的规范化产出。
+```
+define(function(require, exports, module) {
+  // 用到XX模块，才引入
+  var xx = require('XX')
+})
+```
+AMD与CMD最明显的区别就是在模块定义时对依赖的处理不同：
+(1)AMD推崇依赖前置，在定义模块的时候就要声明其依赖的模块
+(2)CMD推崇就近依赖，只有在用到某个模块的时候再去require
+这种区别各有优劣，只是语法上的差距，而且requireJS和SeaJS都支持对方的写法
 
-加载模块： 加载模块使用require方法，该方法读取一个文件并执行，返回文件内部的module.exports对象
-
-AMD 即Asynchronous Module Definition，中文名是异步模块定义的意思。它是一个在浏览器端模块化开发的规范
 ###题目3： 使用 requirejs 完善入门任务15，包括如下功能：
 
- 1. 首屏大图为全屏轮播
- 2. 有回到顶部功能
- 3. 图片区使用瀑布流布局（图片高度不一），下部有加载更多按钮，点击加载更多会加载更多数据(数据在后端 mock)
- 4.  使用 r.js 打包应用
+ [代码](https://github.com/wpsumsun/daily/tree/master/amdDemo)
+ [预览](https://wpsumsun.github.io/amdDomo/)
+ 因为用的新浪的api协议是http的  在git预览中所以获取不到数据，但是在本地是好的
