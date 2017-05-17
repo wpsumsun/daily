@@ -1,9 +1,33 @@
 ###题目1： 如何全局安装一个 node 应用?
 ```
-npm install -g <package_name>
+npm install -g <module_name>
 ```
 ###题目2： package.json 有什么作用？
-
+每个项目的根目录下面，一般都有一个 package.json 文件，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install 命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。
+```
+{
+  "name": "test",  //名称
+  "version": "0.0.1",  //版本
+  "description": "This is my first node.js program.",  //描述
+  "main": "index.js",  //入口
+  "keywords": [  //关键字
+                       "node.js",
+                       "javascript"
+  ],
+  "scripts": {  //执行命令行
+	  "start": "node index.js"
+  },
+  "author": "Mike",  //作者
+  "license":"MIT",  //认证
+  "dependencies": {  //生产环境依赖
+	              "express": "latest"
+  },
+  "devDependencies": {  //开发环境依赖
+		   "bower": "~1.2.8",
+		   "grunt": "~0.4.1"
+  }
+}
+```
 ###题目3： npm install --save app 与 npm install --save-dev app有什么区别?
 --save 将产品运行时（或生产环境）需要的依赖模块添加到 package.json 的 dependencies 中，
 在发布后还需要继续使用，否则就运行不了。
