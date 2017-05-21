@@ -52,3 +52,4 @@ npm install -g <module_name>
 npm install hunger-weather -g
 weather
 ```
+[地址](https://github.com/wpsumsun/daily/blob/master/weather-query/index.js)
