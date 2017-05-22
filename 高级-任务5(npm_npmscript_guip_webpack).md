@@ -37,7 +37,7 @@ npm install -g <module_name>
 ###题目4： node_modules的查找路径是怎样的?
 先查找当前目录下node_modules如果没有就查找上一级目录下的node_modules，直到查询到根目录下的node_modules
 
-###题目5： npm3与 npm2相比有什么改进？yarn和 npm 相比有什么优势? (选做###题目)
+###题目5： npm3与 npm2相比有什么改进？yarn和 npm 相比有什么优势? (选做题目)
 
 ###题目6： webpack是什么？和其他同类型工具比有什么优势？
 
