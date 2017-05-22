@@ -1,0 +1,11 @@
+body{
+    background: #3999d5;
+}
+.wrap{
+    margin: 201px auto;
+    text-align: center;
+}
+.wrap img{
+    width: 240px;
+    margin:0 20px;
+}
