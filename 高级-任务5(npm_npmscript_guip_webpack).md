@@ -46,7 +46,8 @@ npm install -g <module_name>
 ###题目8： 使用 webpack 替换 入门-任务15中模块化使用的 requriejs
 
 ###题目9：gulp是什么？使用 gulp 实现图片压缩、CSS 压缩合并、JS 压缩合并
-
+gulp是一个自动化构建工具,开发者可以使用它在项目开发过程中自动执行常见任务使用 
+[图片压缩、css压缩合并、js压缩合并](https://github.com/wpsumsun/daily/tree/master/gulp-demo)
 ###题目10： 开发一个 node 命令行天气应用用于查询用户当前所在城市的天气，发布到 npm 上去。可以通过如下方式安装使用(可使用api.jirengu.com里提供的查询天气接口) (选做题目)
 ```
 npm install hunger-weather -g
