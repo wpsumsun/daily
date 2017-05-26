@@ -114,4 +114,4 @@ var Carousel = (function () {
     }
 })()
 
-module.exports = Carousel;
+module.exports = Carousel

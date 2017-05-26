@@ -10565,7 +10565,7 @@ var Carousel = (function () {
     }
 })()
 
-module.exports = Carousel;
+module.exports = Carousel
 
 
 /***/ }),
@@ -10609,24 +10609,39 @@ var Gotop = (function () {
 
 })()
 
-module.exports = GoTop;
+module.exports = Gotop
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__carousel__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__carousel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__goTop__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__goTop___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__goTop__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__autoLoad__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__autoLoad___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__autoLoad__);
+
+// var $ = require('jquery');
+// var Gotop=require('./goTop');
+// var Carousel=require('./carousel');
+// var autoLoad=require('./autoLoad');
 
 
-var $ = __webpack_require__(0);
-var GoTop=__webpack_require__(3);
-var Carousel=__webpack_require__(2);
-var autoLoad=__webpack_require__(1);
 
 
 
-GoTop.init($(".contain"))
-Carousel.init($(".carousel"))
-autoLoad.init($(".news-wrap"))
+
+
+__WEBPACK_IMPORTED_MODULE_2__goTop___default.a.init(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(".contain"))
+__WEBPACK_IMPORTED_MODULE_1__carousel___default.a.init(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(".carousel"))
+__WEBPACK_IMPORTED_MODULE_3__autoLoad___default.a.init(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(".news-wrap"))
 
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=index.bundle.js.map

@@ -35,4 +35,4 @@ var Gotop = (function () {
 
 })()
 
-module.exports = GoTop;
+module.exports = Gotop
