@@ -42,7 +42,20 @@ npm install -g <module_name>
 ###题目6： webpack是什么？和其他同类型工具比有什么优势？
 
 ###题目7：npm script是什么？如何使用？
-
+npm script是指的package.json的scripts(脚本)，在其中可配置命令字段
+在package.json的scripts字段定义脚本命令，可在命令行中通过npm run [对应字符]执行，只有test、install等npm自带的命令字段可以直接 npm [字段]
+例：
+```
+{
+    'name':'demo',
+    'version':'0.0.1',
+    'scripts':{                 //设置命令
+         'start':'git add . && git commit -m change && git push origin master'     //‘定义名’：‘命令集合’
+    }           //若需要注意指令先后，指令间使用& ，同时需要保证前一指令成功，后一指令才执行，使用&&
+}
+//执行命令
+$ npm run start
+```
 ###题目8： 使用 webpack 替换 入门-任务15中模块化使用的 requriejs
 
 ###题目9：gulp是什么？使用 gulp 实现图片压缩、CSS 压缩合并、JS 压缩合并
