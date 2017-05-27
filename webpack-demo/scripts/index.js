@@ -1,15 +1,15 @@
 
-// var $ = require('jquery');
-// var Gotop=require('./goTop');
-// var Carousel=require('./carousel');
-// var autoLoad=require('./autoLoad');
+var $ = require('jquery');
+var Gotop=require('./goTop.js');
+var Carousel=require('./carousel.js');
+var autoLoad=require('./autoLoad.js');
 
-import $ from 'jquery'
-import Carousel from './carousel'
-import Gotop from './goTop'
-import autoLoad from './autoLoad'
+// import $ from 'jquery'
+// import Carousel from './carousel'
+// import Gotop from './goTop'
+// import autoLoad from './autoLoad'
 
 
-Gotop.init($(".contain"))
-Carousel.init($(".carousel"))
-autoLoad.init($(".news-wrap"))
+new Gotop($(".contain"));
+new Carousel($(".carousel"));
+new autoLoad($(".news-wrap"));

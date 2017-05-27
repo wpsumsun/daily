@@ -10333,8 +10333,8 @@ return jQuery;
 
 var $ = __webpack_require__(0);
 
-var AutoLoad = (function () {
-    function _AutoLoad(ct) {
+module.exports=function(){
+    function AutoLoad(ct) {
         this.curPage = 1;
         this.perPageCount = 15;
         this.heightArr = [];
@@ -10343,7 +10343,7 @@ var AutoLoad = (function () {
         this.getNews();
         this.bind();
     }
-    _AutoLoad.prototype = {
+    AutoLoad.prototype = {
         getNews: function () {
             var _this = this;
             $.ajax({
@@ -10436,14 +10436,8 @@ var AutoLoad = (function () {
 
     }
 
-    return {
-        init:function(ct){
-            new _AutoLoad(ct);
-        }
-    }
-})()
-
-module.exports = AutoLoad;
+    return AutoLoad;
+};
 
 /***/ }),
 /* 2 */
@@ -10452,9 +10446,8 @@ module.exports = AutoLoad;
 
 var $ = __webpack_require__(0);
 
-
-var Carousel = (function () {
-    function _Carousel(ct) {
+module.exports=function(){
+    function Carousel(ct) {
         this.ct = ct;
         this.isAnimate = false;
         this.curPage = 0;
@@ -10462,7 +10455,7 @@ var Carousel = (function () {
         this.bind();
         this.autoPlay();
     }
-    _Carousel.prototype = {
+    Carousel.prototype = {
         init: function () {
             var imgWrap = this.imgWrap = this.ct.find(".img-wrap");
             var imgLi = this.imgLi = imgWrap.find("li"),
@@ -10558,14 +10551,9 @@ var Carousel = (function () {
         }
     }
 
-    return {
-        init: function (ct) {
-            new _Carousel(ct);
-        }
-    }
-})()
+    return Carousel;
 
-module.exports = Carousel
+}
 
 
 /***/ }),
@@ -10575,14 +10563,14 @@ module.exports = Carousel
 
 var $ = __webpack_require__(0);
 
-var Gotop = (function () {
-    function _GoTop(ct) {
+module.exports=function(){
+    function GoTop(ct) {
         this.ct = ct;
         this.target = $("<div class='gotop'>返回顶部</div>");
         this.creatNode();
         this.bindEvent();
     }
-    _GoTop.prototype = {
+    GoTop.prototype = {
         creatNode: function () {
             this.ct.append(this.target);
         },
@@ -10601,45 +10589,28 @@ var Gotop = (function () {
         }
     }
 
-    return {
-        init: function (ct) {
-            new _GoTop(ct);
-        }
-    }
-
-})()
-
-module.exports = Gotop
+    return GoTop;
+};
 
 /***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__carousel__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__carousel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__goTop__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__goTop___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__goTop__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__autoLoad__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__autoLoad___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__autoLoad__);
-
-// var $ = require('jquery');
-// var Gotop=require('./goTop');
-// var Carousel=require('./carousel');
-// var autoLoad=require('./autoLoad');
+/***/ (function(module, exports, __webpack_require__) {
 
 
+var $ = __webpack_require__(0);
+var Gotop=__webpack_require__(3);
+var Carousel=__webpack_require__(2);
+var autoLoad=__webpack_require__(1);
+
+// import $ from 'jquery'
+// import Carousel from './carousel'
+// import Gotop from './goTop'
+// import autoLoad from './autoLoad'
 
 
-
-
-
-__WEBPACK_IMPORTED_MODULE_2__goTop___default.a.init(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(".contain"))
-__WEBPACK_IMPORTED_MODULE_1__carousel___default.a.init(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(".carousel"))
-__WEBPACK_IMPORTED_MODULE_3__autoLoad___default.a.init(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(".news-wrap"))
+new Gotop($(".contain"));
+new Carousel($(".carousel"));
+new autoLoad($(".news-wrap"));
 
 
 /***/ })

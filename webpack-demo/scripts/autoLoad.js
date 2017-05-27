@@ -1,8 +1,8 @@
 
 var $ = require('jquery');
 
-var AutoLoad = (function () {
-    function _AutoLoad(ct) {
+module.exports=function(){
+    function AutoLoad(ct) {
         this.curPage = 1;
         this.perPageCount = 15;
         this.heightArr = [];
@@ -11,7 +11,7 @@ var AutoLoad = (function () {
         this.getNews();
         this.bind();
     }
-    _AutoLoad.prototype = {
+    AutoLoad.prototype = {
         getNews: function () {
             var _this = this;
             $.ajax({
@@ -104,11 +104,5 @@ var AutoLoad = (function () {
 
     }
 
-    return {
-        init:function(ct){
-            new _AutoLoad(ct);
-        }
-    }
-})()
-
-module.exports = AutoLoad;
+    return AutoLoad;
+};
