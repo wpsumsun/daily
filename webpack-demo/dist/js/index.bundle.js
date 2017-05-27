@@ -10437,7 +10437,7 @@ module.exports=function(){
     }
 
     return AutoLoad;
-};
+}()
 
 /***/ }),
 /* 2 */
@@ -10552,9 +10552,7 @@ module.exports=function(){
     }
 
     return Carousel;
-
-}
-
+}()
 
 /***/ }),
 /* 3 */
@@ -10590,28 +10588,25 @@ module.exports=function(){
     }
 
     return GoTop;
-};
+}()
 
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var $ = __webpack_require__(0);
-var Gotop=__webpack_require__(3);
+var $= __webpack_require__(0);
+var GoTop=__webpack_require__(3);
 var Carousel=__webpack_require__(2);
-var autoLoad=__webpack_require__(1);
+var AutoLoad=__webpack_require__(1);
 
 // import $ from 'jquery'
 // import Carousel from './carousel'
 // import Gotop from './goTop'
 // import autoLoad from './autoLoad'
-
-
-new Gotop($(".contain"));
-new Carousel($(".carousel"));
-new autoLoad($(".news-wrap"));
-
+var gotop=new GoTop($(".contain"));
+var carousel=new Carousel($(".carousel"));
+var autoload=new AutoLoad($(".news-wrap"));
 
 /***/ })
 /******/ ]);
