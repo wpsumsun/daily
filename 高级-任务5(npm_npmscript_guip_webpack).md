@@ -71,7 +71,7 @@ npm script是指的package.json的scripts(脚本)，在其中可配置命令字�
 $ npm run start
 ```
 ###题目8： 使用 webpack 替换 入门-任务15中模块化使用的 requriejs
-
+[code](https://github.com/wpsumsun/daily/tree/master/webpack-demo)
 ###题目9：gulp是什么？使用 gulp 实现图片压缩、CSS 压缩合并、JS 压缩合并
 gulp是一个自动化构建工具,开发者可以使用它在项目开发过程中自动执行常见任务使用 
 [图片压缩、css压缩合并、js压缩合并](https://github.com/wpsumsun/daily/tree/master/gulp-demo)
