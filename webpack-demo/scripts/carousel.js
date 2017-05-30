@@ -1,9 +1,8 @@
 
 var $ = require('jquery');
 
-
-var Carousel = (function () {
-    function _Carousel(ct) {
+module.exports=function(){
+    function Carousel(ct) {
         this.ct = ct;
         this.isAnimate = false;
         this.curPage = 0;
@@ -11,7 +10,7 @@ var Carousel = (function () {
         this.bind();
         this.autoPlay();
     }
-    _Carousel.prototype = {
+    Carousel.prototype = {
         init: function () {
             var imgWrap = this.imgWrap = this.ct.find(".img-wrap");
             var imgLi = this.imgLi = imgWrap.find("li"),
@@ -107,11 +106,5 @@ var Carousel = (function () {
         }
     }
 
-    return {
-        init: function (ct) {
-            new _Carousel(ct);
-        }
-    }
-})()
-
-module.exports = Carousel
+    return Carousel;
+}()

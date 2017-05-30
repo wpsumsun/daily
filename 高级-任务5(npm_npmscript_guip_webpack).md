@@ -38,8 +38,22 @@ npm install -g <module_name>
 先查找当前目录下node_modules如果没有就查找上一级目录下的node_modules，直到查询到根目录下的node_modules
 
 ###题目5： npm3与 npm2相比有什么改进？yarn和 npm 相比有什么优势? (选做题目)
+####npm2
+npm2更为直接，直接按照每个项目的依赖关系构建目录，每个项目的依赖都存放在项目的子文件中，保证了一样依赖存放模式，较为稳定，而在复杂的依赖关系的情况下，若多个项目同时依赖同一个项目会导致重复的下载，而且若依赖中也同时依赖同一个项目，也会重复下载，在目录层级复杂的情况下，会严重的浪费资源和使用效率低下
+![](https://jscode.me/uploads/default/optimized/2X/d/d6abcace00398f95cb6c86553930c0db0785c89f_1_690x372.png)
+####npm3
+为了避免npm2的问题，对整个项目进行检查，将读到的没写入的依赖写在第一级目录，后来读到的依赖版本不同的情况下放置在写在所依赖的项目的子文件下，减少了文件层级，节省资源
 
+yarn与npm相比的优势
+yarn是并行安装项目，安装速度比npm快，且安装结果一致避免了npm本地更新发布后，和下载安装的目录不一致问题
+npm允许执行代码，具有安全问题，yarn的输出更干净
 ###题目6： webpack是什么？和其他同类型工具比有什么优势？
+
+    webpack是一款模块加载器兼打包工具，它能把各种资源JS/CSS/图片等都作为模块来使用和处理。
+    优势：
+        webpack 是以commonJS的形式来书写脚本，对 AMD/CMD 的支持也很全面，方便其它模块也兼容使用
+        扩展性强，插件机制完善，能被模块化处理的资源多，例JS/CSS/IMG等
+        开发便捷，能替代部分 grunt/gulp 的工作，比如打包、压缩混淆、图片转base64等。
 
 ###题目7：npm script是什么？如何使用？
 npm script是指的package.json的scripts(脚本)，在其中可配置命令字段
@@ -57,7 +71,7 @@ npm script是指的package.json的scripts(脚本)，在其中可配置命令字�
 $ npm run start
 ```
 ###题目8： 使用 webpack 替换 入门-任务15中模块化使用的 requriejs
-
+[code](https://github.com/wpsumsun/daily/tree/master/webpack-demo)
 ###题目9：gulp是什么？使用 gulp 实现图片压缩、CSS 压缩合并、JS 压缩合并
 gulp是一个自动化构建工具,开发者可以使用它在项目开发过程中自动执行常见任务使用 
 [图片压缩、css压缩合并、js压缩合并](https://github.com/wpsumsun/daily/tree/master/gulp-demo)

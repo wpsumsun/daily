@@ -1,14 +1,14 @@
 
 var $ = require('jquery');
 
-var Gotop = (function () {
-    function _GoTop(ct) {
+module.exports=function(){
+    function GoTop(ct) {
         this.ct = ct;
         this.target = $("<div class='gotop'>返回顶部</div>");
         this.creatNode();
         this.bindEvent();
     }
-    _GoTop.prototype = {
+    GoTop.prototype = {
         creatNode: function () {
             this.ct.append(this.target);
         },
@@ -27,12 +27,5 @@ var Gotop = (function () {
         }
     }
 
-    return {
-        init: function (ct) {
-            new _GoTop(ct);
-        }
-    }
-
-})()
-
-module.exports = Gotop
+    return GoTop;
+}()
