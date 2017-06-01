@@ -45,7 +45,15 @@ email url number range Date month week time datatime
 ##题目4： 写出如下 CSS3效果的简单事例
 
     1. 圆角， 圆形
+    ```
+        border-radius:5px; //圆角
+        border-radius:50%;//圆形
+
+    ```
     2. div 阴影
+    ```
+    box-shadow:[inset] 3px 3px 4px 5px #3999d5;
+    ```
     3. 2D 转换：放大、缩小、偏移、旋转
     4. 3D 转换：移动、旋转
     5. 背景色渐变
