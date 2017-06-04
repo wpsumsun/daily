@@ -1,6 +1,7 @@
 ##题目1： HTML5是什么？有哪些新特性？有哪些新增标签？如何让低版本的 IE 支持 HTML5新标签
 HTML5是超文本标记语言的第五次重大修改，2014年10月29日标准规范制定完成
 
+
 ###特性
 
 ####语义特性
@@ -38,6 +39,19 @@ HTML5赋予网页更好的意义和结构。更加丰富的标签将随着对RDF
 ###新增标签
 header footer nav section audio video aside 
 
+```
+<!--[if lt IE 9]>            
+<script type="text/javascript" src="scripts/html5shiv.js"></script>
+<![endif]-->    
+//如果版本小于IE9就引入html5shiv.js，IE9以前的浏览器就能使用h5标签，并使用定义好的样式了。这个标签必须放在head标签内，因为浏览器要在解析之前知道这个元素。
+
+//也可以直接声明
+<!--[if lt IE 9]> 
+(function(){if(!/*@cc_on!@*/0)return;var e = "abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(','),i=e.length;while(i--){document.createElement(e[i])}})()
+<![endif]-->
+
+```
+
 ##题目2： input 有哪些新增类型？
 email url number range Date month week time datatime
 ##题目3： 浏览器本地存储中 cookie 和 localStorage 有什么区别？ localStorage 如何存储删除数据。
@@ -45,20 +59,13 @@ email url number range Date month week time datatime
 ##题目4： 写出如下 CSS3效果的简单事例
 
     1. 圆角， 圆形
-    ```
-        border-radius:5px; //圆角
-        border-radius:50%;//圆形
-
-    ```
     2. div 阴影
-    ```
-    box-shadow:[inset] 3px 3px 4px 5px #3999d5;
-    ```
     3. 2D 转换：放大、缩小、偏移、旋转
     4. 3D 转换：移动、旋转
     5. 背景色渐变
     6. 过渡效果
     7. 动画
+    [code](http://js.jirengu.com/rakoroqene/20/edit)
 ##题目5： 实现如下全屏图加过渡色的效果（具体效果随意
 
 ##题目6： 写出如下 loading 动画效果
