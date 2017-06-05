@@ -66,6 +66,7 @@ email url number range Date month week time datatime
     6. 过渡效果
     7. 动画
     [code](http://js.jirengu.com/rakoroqene/20/edit)
+    [效果](http://book.jirengu.com/jirengu-inc/js-works/)
 ##题目5： 实现如下全屏图加过渡色的效果（具体效果随意
 
 ##题目6： 写出如下 loading 动画效果
