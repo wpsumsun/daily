@@ -55,7 +55,10 @@ header footer nav section audio video aside
 ##题目2： input 有哪些新增类型？
 email url number range Date month week time datatime
 ##题目3： 浏览器本地存储中 cookie 和 localStorage 有什么区别？ localStorage 如何存储删除数据。
-
+![](https://jscode.me/uploads/default/original/2X/5/5b41604c509bf74d8b08ab68e4db8734f47e6485.jpg)
+```
+storage.removeItem(keyName);//删除
+```
 ##题目4： 写出如下 CSS3效果的简单事例
 
     1. 圆角， 圆形
@@ -65,8 +68,7 @@ email url number range Date month week time datatime
     5. 背景色渐变
     6. 过渡效果
     7. 动画
-    [code](http://js.jirengu.com/rakoroqene/20/edit)
-    [效果](http://book.jirengu.com/jirengu-inc/js-works/)
+    [code](http://js.jirengu.com/cizocaravi/19/edit)
 ##题目5： 实现如下全屏图加过渡色的效果（具体效果随意
 
 ##题目6： 写出如下 loading 动画效果
