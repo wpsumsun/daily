@@ -70,5 +70,7 @@ storage.removeItem(keyName);//删除
     7. 动画
     [code](http://js.jirengu.com/cizocaravi/19/edit)
 ##题目5： 实现如下全屏图加过渡色的效果（具体效果随意
-
+[code](http://js.jirengu.com/sogofenezo/3/edit?html,css,output)
 ##题目6： 写出如下 loading 动画效果
+[loading-1](http://js.jirengu.com/favapipate/1/edit?html,css,output)
+[loading-2](http://js.jirengu.com/sokihojuwi/1/edit?html,css,output)
