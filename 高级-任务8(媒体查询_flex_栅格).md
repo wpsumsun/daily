@@ -5,4 +5,5 @@
 3. 在页面900px>=宽度> 600px  时页面背景为黄色
 4. 宽度<=600px 背景为灰色
 ```
+[code](http://js.jirengu.com/gezebepumo/1/edit?html,output)
 ###题目2： 实现一个简单的栅格系统(可选题目)
